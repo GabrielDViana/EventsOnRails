@@ -1,0 +1,167 @@
+
+.nav li {
+	display:inline;
+
+}
+
+.nav a {
+	color:white;
+	font-family:Helvetica;
+	font-size:20px;
+	padding:30px 30px;
+	line-height:100px;
+	text-decoration:none;
+}
+
+html,body {
+	height: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background: -webkit-linear-gradient(#85D8CE, #085078); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#85D8CE, #085078); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#85D8CE, #085078); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#85D8CE, #085078); /* Standard*/
+}
+.content.form-success .container h1 {
+  -webkit-transform: translateY(85px);
+      -ms-transform: translateY(85px);
+          transform: translateY(85px);
+}
+.content .container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 0;
+  height: 400px;
+  text-align: center;
+}
+.content .container h1 {
+  font-size: 40px;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-put;
+          transition-timing-function: ease-in-put;
+  font-weight: 200;
+  color:white;
+  font-family:Helvetica;
+}
+
+.content .container a {
+  font-size: 12px;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-put;
+          transition-timing-function: ease-in-put;
+  font-weight: 200;
+  color:white;
+  font-family:Helvetica;
+}
+form {
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+form input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: #505050;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+  font-weight: 300;
+}
+form input:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+form input:focus {
+  background-color: white;
+  width: 300px;
+ 
+}
+form button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #085078;
+  border-radius: 3px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+form button:hover {
+  background-color: #f5f7f9;
+}
+
+::-webkit-input-placeholder {
+   color: #E0E0E0;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #E0E0E0;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #E0E0E0;  
+}
+
+:-ms-input-placeholder {  
+   color: #E0E0E0;  
+}
+
+@-webkit-keyframes square {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-700px) rotate(600deg);
+            transform: translateY(-700px) rotate(600deg);
+  }
+}
+@keyframes square {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-700px) rotate(600deg);
+            transform: translateY(-700px) rotate(600deg);
+  }
+}
+
+.footer {
+	position:fixed;
+	bottom:0;
+	
+}
+
+.footer li {
+	display:inline;	
+}
+
+.footer a {
+	color:white;
+	font-family:Helvetica;
+	font-size:10px;
+	padding:10px 10px;
+	
+}
+
+
+
