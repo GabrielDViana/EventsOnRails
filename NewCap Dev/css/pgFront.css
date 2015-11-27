@@ -1,0 +1,59 @@
+.nav li {
+	display:inline;
+	float:	
+
+}
+
+.nav a {
+	color:white;
+	font-family:Helvetica;
+	font-size:20px;
+	padding:30px 30px;
+	line-height:100px;
+	text-decoration:none;
+}
+
+html,body {
+	height: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background: -webkit-linear-gradient(#85D8CE, #085078); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#85D8CE, #085078); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#85D8CE, #085078); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#85D8CE, #085078); /* Standard*/
+}
+
+.content h1{
+	color:white;
+	font-family:Helvetica;
+	left:0;
+	text-align:center;
+    line-height: 200px;
+    margin: auto;
+    margin-top: -100px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.footer {
+	position:fixed;
+	bottom:0;
+	
+}
+
+.footer li {
+	display:inline;	
+}
+
+.footer a {
+	color:white;
+	font-family:Helvetica;
+	font-size:10px;
+	padding:10px 10px;
+	
+}
+
+
+
