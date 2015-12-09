@@ -1,0 +1,31 @@
+<h1>Sign up</h1>
+
+<%= render 'form' %>
+
+<%= form_for(@user) do |f| %>
+    <div class="field">
+      <%= f.label :nickname %><br>
+      <%= f.text_field :nickname %>
+    </div>
+    <div class="field">
+      <%= f.label :complete_name %><br>
+      <%= f.text_field :complete_name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<%= link_to 'Back', users_path %>
