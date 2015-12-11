@@ -13,3 +13,86 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+/******************************************************
+    AS CSS's serao inicialmente colocadas neste arquivo
+******************************************************/
+
+body {
+    background-image: url('background.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.white-font{
+    color:white;
+}
+
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+
+.btn-default.outline {
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}
+
+.btn-default.outline:hover, .btn-default.outline:focus,
+.btn-default.outline:active, .btn-default.outline.active,
+.open > .dropdown-toggle.btn-default {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+.btn-default.outline:active, .btn-default.outline.active {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    box-shadow: none;
+}
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.login-signup-content {
+  background: none !important;
+  box-shadow: none !important;
+  background: #FFF none repeat scroll 0% 0%;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+  padding-bottom: 1.2em;
+}
+
+.err-list{
+    list-style:none;
+}
+
+.field{
+    padding-bottom: 1em;
+}
+
+.field_with_errors {
+  @extend .has-error;
+}
+
+.field_with_errors .form-control {
+  color: #A94442;
+}
+
+.field_with_errors  {
+    @extend .has-error;
+    .form-control {
+        color: $state-danger-text;
+    }
+}
