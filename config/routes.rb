@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-    
+
+
+    resources :sessions, only: [:new, :create, :destroy]
+    get 'signup', to: 'users#new', as: 'signup'
+    get 'login', to: 'sessions#new', as: 'login'
+
     resources :users
     get 'user/index'
-    root 'user#index'
+    get 'new_cap/index'
+    root 'new_cap#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

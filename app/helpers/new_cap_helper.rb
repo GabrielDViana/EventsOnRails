@@ -1,0 +1,2 @@
+module NewCapHelper
+end

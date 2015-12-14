@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
 <!-- Esta pagina tem como fim apenas mostrar os usuarios que foram salvos no
 banco local, possivelmente não haverá aplicação para a mesma -->
+<p id="notice"><%= notice %></p>
+
 <h1>Users that have signed up</h1>
 
 <table>
@@ -20,9 +21,7 @@ banco local, possivelmente não haverá aplicação para a mesma -->
         <td><%= user.complete_name %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Remove', user, method: :delete,
-            data: { confirm: 'Are you sure?' } %>
-        </td>
+        <td><%= link_to 'Remove', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
