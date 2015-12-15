@@ -48,11 +48,16 @@ atributos que serão passados -->
             class: 'form-control' %>
         </div>
     </div>
-        <div class="actions" >
-            <%= f.submit "Sign up", class: 'btn btn-default btn-lg outline'%>
-            <%= link_to "Back ", users_path,
-            class: 'btn btn-default btn-lg outline
-                glyphicon glyphicon glyphicon-remove'%>
+    <div class="row ">
+        <div class="field col-md-2 col-md-offset-5">
+            <%= f.check_box :terms %>
+            <%= f.label :terms, "I accept terms of service" %>
         </div>
+    </div>
+    <div class="actions" >
+        <%= f.submit "Sign up", class: 'btn btn-default btn-lg outline'%>
+        <%= link_to "Back ", users_path,
+        class: 'btn btn-default btn-lg outline
+            glyphicon glyphicon glyphicon-remove'%>
     </div>
 <% end %>

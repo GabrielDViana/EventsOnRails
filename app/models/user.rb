@@ -1,3 +1,4 @@
+# Model do usuario, chama as validações
 class User < ActiveRecord::Base
     has_secure_password
 
@@ -27,5 +28,9 @@ class User < ActiveRecord::Base
                     minimum: 8
                 },
                 presence: true
-                
+
+    validates_acceptance_of     :terms,
+                                :allow_nil => false,
+                                :message => " of service not accepted"
+
 end
