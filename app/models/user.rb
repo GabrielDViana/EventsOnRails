@@ -1,8 +1,7 @@
 # Model do usuario, chama as validações
 class User < ActiveRecord::Base
     has_secure_password
-    before_save :encrypt_password
-    after_save :clear_password
+    before_create :confirmation_token
 
     validates   :nickname,
                 presence: true,
@@ -27,7 +26,8 @@ class User < ActiveRecord::Base
                 }
     validates   :password,
                 length:{
-                    minimum: 8
+                    minimum: 6,
+                    maximum: 20
                 },
                 presence: true
 
@@ -35,15 +35,18 @@ class User < ActiveRecord::Base
                                 :allow_nil => false,
                                 :message => " of service not accepted"
 
-    attr_accessor :salt
 
-    def encrypt_password
-        if password.present?
-            self.salt = BCrypt::Engine.generate_salt
-            self.password= BCrypt::Engine.hash_secret(password, salt)
+# Ativação do email
+    def email_activate
+        self.email_confirmed = true
+        self.confirm_token = nil
+        save!(:validate => false)
+    end
+
+    private
+        def confirmation_token
+            if self.confirm_token.blank?
+                self.confirm_token = SecureRandom.urlsafe_base64.to_s
+            end
         end
-    end
-    def clear_password
-        self.password = nil
-    end
 end

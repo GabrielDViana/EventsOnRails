@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+# Essas são as rotas das URLs
     resources :sessions, only: [:new, :create, :destroy]
     get 'signup', to: 'users#new', as: 'signup'
     get 'login', to: 'sessions#new', as: 'login'
@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     get 'user/index'
     get 'new_cap/index'
     root 'new_cap#index'
+
+    resources :users do
+        member do
+            get :confirm_email
+        end
+    end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

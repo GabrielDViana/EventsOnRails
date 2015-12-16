@@ -12,17 +12,20 @@ class UsersController < ApplicationController
     def new
         @user = User.new
     end
-
+# Metodo create irá pedir que o usuário confirme o email
     def create
         @user = User.new(user_params)
 
         if @user.save
-            redirect_to @user, notice: 'User was successfully created.'
+            UserMailer.registration_confirmation(@user).deliver_now
+            flash[:success] = "Please confirm your email address to continue"
+            redirect_to root_url
         else
-            render :new
+            flash[:error] = "Try again. Something went wrong!"
+            render 'new'
         end
     end
-
+# Metodo update permitira que o usuário faça a edição dos dados que achar necessario
     def update
         if @user.update(user_params)
             redirect_to @user, notice: 'User was successfully updated.'
@@ -30,10 +33,23 @@ class UsersController < ApplicationController
             render :edit
         end
     end
-
+# Metodo destroy exclui o usuário
     def destroy
         @user.destroy
         redirect_to users_url, notice: 'User was successfully destroyed.'
+    end
+
+    def confirm_email
+        user = User.find_by_confirm_token(params[:id])
+        if user
+            user.email_activate
+            flash[:success] = "Welcome to New Cap! Your email has been confirmed.
+            Please, sign in to continue."
+            redirect_to login_url
+        else
+            flash[:error] = "Sorry. User does not exist"
+            redirect_to root_url
+        end
     end
 
     private
@@ -42,6 +58,7 @@ class UsersController < ApplicationController
         end
 
         def user_params
-            params.require(:user).permit(:nickname, :complete_name, :email, :password, :password_confirmation, :terms)
+            params.require(:user).permit(:nickname, :complete_name, :email,
+                :password, :password_confirmation, :terms)
         end
 end
