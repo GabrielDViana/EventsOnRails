@@ -1,6 +1,8 @@
 # Model do usuario, chama as validações
 class User < ActiveRecord::Base
     has_secure_password
+    before_save :encrypt_password
+    after_save :clear_password
 
     validates   :nickname,
                 presence: true,
@@ -33,4 +35,15 @@ class User < ActiveRecord::Base
                                 :allow_nil => false,
                                 :message => " of service not accepted"
 
+    attr_accessor :salt
+
+    def encrypt_password
+        if password.present?
+            self.salt = BCrypt::Engine.generate_salt
+            self.password= BCrypt::Engine.hash_secret(password, salt)
+        end
+    end
+    def clear_password
+        self.password = nil
+    end
 end
