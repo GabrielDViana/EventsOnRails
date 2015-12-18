@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-    default :from => "gabrielv14@gmail.com"
+    # O Layout carrega a view que sera usada como template para o corpo do email
     layout 'registration_confirmation'
 end

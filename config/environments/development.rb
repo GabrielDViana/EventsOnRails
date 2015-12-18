@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -42,12 +42,17 @@ Rails.application.configure do
   # Default Mailer Host
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   config.action_mailer.delivery_method = :smtp
+  
+  # Como o email precisa ser real e ter um dominio real, eu estou colocando o
+  # meu proprio email, futuramente, colocaremos o nosso próprio domínio
   config.action_mailer.smtp_settings = {
     :address        => 'smtp.gmail.com',
-    :domain         => 'mail.google.com',
+    :domain         => 'newcap.com',
     :port           => 587,
-    :user_name      => 'gabrielv14@gmail.com',
-    # :password       => 'senha aqui',
+    # Aqui vcs podem colocar seus proprios usuários todas as vezes
+    # Breve estarei criando um gmail pro New Cap para facilitar isso
+    :user_name      => 'usuario@gmail.com',
+    :password       => 'senha',
     :authentication => :plain,
     :enable_starttls_auto => true
   }

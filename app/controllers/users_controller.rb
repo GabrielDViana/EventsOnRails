@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 # Metodo create irá pedir que o usuário confirme o email
     def create
         @user = User.new(user_params)
-
+        # Caso o usuario seja salvo com os dados validos, um email sera enviado
         if @user.save
             UserMailer.registration_confirmation(@user).deliver_now
             flash[:success] = "Please confirm your email address to continue"
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         @user.destroy
         redirect_to users_url, notice: 'User was successfully destroyed.'
     end
-
+# Método que irá verificar se o usuário confirmou o email de registro
     def confirm_email
         user = User.find_by_confirm_token(params[:id])
         if user
