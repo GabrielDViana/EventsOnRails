@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
         user = User.find_by_email(params[:email])
         if user && user.authenticate(params[:password])
             if user.email_confirmed
-                session[:user_id] = user.id
+                if params[:remember_me]
+                    cookies.permanent[:auth_token] = user.auth_token
+                else
+                    cookies[:auth_token] = user.auth_token
+                end
                 redirect_to root_url, notice: 'Logged in!'
             else
                 flash.now[:error] = 'Please activate your account by following the
@@ -21,7 +25,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session[:user_id] = nil
+        cookies.delete(:auth_token)
         redirect_to root_url, notice: "Succefully loggedd out"
     end
 end

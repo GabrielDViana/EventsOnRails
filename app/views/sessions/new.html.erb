@@ -1,4 +1,4 @@
-<h1 class='white-font'>Sign up</h1>
+<h1 class='white-font'>Log In</h1>
 
 <%= form_tag sessions_path do %>
 <div class="row ">
@@ -15,6 +15,12 @@
     </div>
     <div class="field col-md-2">
         <%= password_field_tag :password %>
+    </div>
+</div>
+<div class="row ">
+    <div class="field col-md-2 col-md-offset-5">
+        <%= label_tag :remember_me %>
+        <%= check_box_tag :remember_me, 1, params[:remember_me] %>
     </div>
 </div>
     <div class="actions" >

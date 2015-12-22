@@ -42,7 +42,7 @@ Rails.application.configure do
   # Default Mailer Host
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   config.action_mailer.delivery_method = :smtp
-  
+
   # Como o email precisa ser real e ter um dominio real, eu estou colocando o
   # meu proprio email, futuramente, colocaremos o nosso próprio domínio
   config.action_mailer.smtp_settings = {

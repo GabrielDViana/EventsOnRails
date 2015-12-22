@@ -2,6 +2,7 @@
 class User < ActiveRecord::Base
     has_secure_password
     before_create :confirmation_token
+    before_create { generate_token(:auth_token) }
 
     validates   :nickname,
                 presence: true,
@@ -42,11 +43,17 @@ class User < ActiveRecord::Base
         self.confirm_token = nil
         save!(:validate => false)
     end
-
+# Chave que será mandada pelo email
     private
         def confirmation_token
             if self.confirm_token.blank?
                 self.confirm_token = SecureRandom.urlsafe_base64.to_s
             end
         end
+# Lembrar-me(para manter o usuario conectado)
+    def generate_token(column)
+        begin
+            self[column] = SecureRandom.urlsafe_base64
+        end while User.exists?(column => self[column])
+    end
 end
