@@ -1,6 +1,6 @@
 # Model do usuario, chama as validações
 class User < ActiveRecord::Base
-    attr_accessible :nickname, :complete_name, :email, :password
+    attr_accessible :nickname, :complete_name, :email, :password, :terms
     has_secure_password
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
@@ -33,8 +33,8 @@ class User < ActiveRecord::Base
                 },
                 presence: true
 
-    validates_acceptance_of     :terms,
-                                :message => " of service not accepted"
+    validates   :terms,
+                :acceptance => true
 
 
 # Ativação do email

@@ -51,8 +51,8 @@ Rails.application.configure do
     :port           => 587,
     # Aqui vcs podem colocar seus proprios usuários todas as vezes
     # Breve estarei criando um gmail pro New Cap para facilitar isso
-    :user_name      => 'gabrielv14@gmail.com',
-    :password       => 'billywildthekid39',
+    :user_name      => 'newcapstartup@gmail.com',
+    :password       => 'new15cap',
     :authentication => :plain,
     :enable_starttls_auto => true
   }

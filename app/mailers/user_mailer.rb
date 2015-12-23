@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
     def registration_confirmation(user)
         @user = user
         mail(:to => user.email,
-            :from => 'gabrielv14@gmail.com',
+            :from => 'New Cap',
             :subject => "Registration Confirmation")do|format|
                 format.html { render layout: 'registration_confirmation' }
             end
@@ -13,7 +13,7 @@ class UserMailer < ActionMailer::Base
     def password_reset(user)
         @user = user
         mail(:to => user.email,
-            :from => 'gabrielv14@gmail.com',
+            :from => 'New Cap',
             :subject => 'Password reset')do|format|
                 format.html { render layout: 'password_reset' }
             end
