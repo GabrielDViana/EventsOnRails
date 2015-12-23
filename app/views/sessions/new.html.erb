@@ -19,6 +19,11 @@
 </div>
 <div class="row ">
     <div class="field col-md-2 col-md-offset-5">
+        <%= link_to "I forgot my password", password_resets_path %>
+    </div>
+</div>
+<div class="row ">
+    <div class="field col-md-2 col-md-offset-5">
         <%= label_tag :remember_me %>
         <%= check_box_tag :remember_me, 1, params[:remember_me] %>
     </div>

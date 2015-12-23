@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+    resources :password_resets
+    
 # Essas são as rotas das URLs
     resources :sessions, only: [:new, :create, :destroy]
     get 'signup', to: 'users#new', as: 'signup'
