@@ -1,3 +1,19 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-bar {
+    background: #222 none repeat scroll 0% 0%;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+    color: #333;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    height: 100%;
+}
+.profile-bar p#user-name {
+    color: #fff;
+    border-bottom: 1px solid #777;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: -10px;
+    padding-bottom: 4px;
+}

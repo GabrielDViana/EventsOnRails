@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
     validates   :terms,
                 :acceptance => true
 
+    has_attached_file :profile_image
+    validates_attachment    :profile_image,
+        profile_image_content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
 # Ativação do email
     def email_activate

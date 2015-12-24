@@ -1,0 +1,62 @@
+<h1 class='white-font'>Editar Perfil</h1>
+
+<%= render 'form' %>
+<%= render 'profile_bar' %>
+
+<%= form_for(@user) do |f| %>
+    <div class="row ">
+        <div class="field col-md-2 col-md-offset-3">
+            <%= f.label :nickname, "Nickname:", class: 'white-font' %>
+        </div>
+        <div class="field col-md-2">
+            <%= f.text_field :nickname, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="field col-md-2 col-md-offset-3">
+            <%= f.label :complete_name, "Complete name:", class: 'white-font' %>
+        </div>
+        <div class="field col-md-2">
+            <%= f.text_field :complete_name, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="field col-md-2 col-md-offset-3">
+            <%= f.label :email, "E-mail:", class: 'white-font' %>
+        </div>
+        <div class="field col-md-2">
+            <%= f.text_field :email, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="field col-md-2 col-md-offset-3">
+            <%= f.label :password, "Password:", class: 'white-font' %>
+        </div>
+        <div class="field col-md-2">
+            <%= f.password_field :password, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="field col-md-2 col-md-offset-3">
+            <%= f.label :password_confirmation, "Password Confirmation:",
+            class: 'white-font' %>
+        </div>
+        <div class="field col-md-2">
+            <%= f.password_field :password_confirmation,
+            class: 'form-control' %>
+        </div>
+    </div>
+    <div>
+        <%= f.label :profile_image, "Foto de Perfil" %>
+    </div>
+    <span class="btn btn-default btn-file">
+        Browse Files<%= f.file_field :profile_image, class: 'form-control' %>
+    </span>
+
+    <div class="actions" >
+        <%= f.submit "Update Profile", class: 'btn btn-default btn-lg outline'%>
+        <%= link_to "Back ", users_path,
+        class: 'btn btn-default btn-lg outline
+            glyphicon glyphicon glyphicon-remove'%>
+    </div>
+<% end %>
