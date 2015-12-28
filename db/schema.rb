@@ -18,15 +18,18 @@ ActiveRecord::Schema.define(version: 20151224181120) do
     t.string   "complete_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.boolean  "email_confirmed",         default: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.boolean  "email_confirmed",            default: false
     t.string   "confirm_token"
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "pofile_image_file_name"
     t.string   "profile_image_file_name"
+    t.string   "profile_image_content_type"
+    t.integer  "profile_image_file_size"
+    t.datetime "profile_image_updated_at"
   end
 
 end

@@ -17,3 +17,15 @@
     margin-top: -10px;
     padding-bottom: 4px;
 }
+.profile-image {
+    border-radius: 5px;
+    height: 9em;
+    width: 9em;
+    margin: auto;
+    overflow: hidden;
+}
+.profile-image img {
+    margin: 0px auto;
+    width: 80%;
+    height: 80%;
+}

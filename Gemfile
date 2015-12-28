@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'paperclip'
+gem "paperclip", "~> 4.3"
 # Use protected_attributes
 gem 'protected_attributes'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

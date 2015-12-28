@@ -1,34 +1,14 @@
 <h1 class='white-font'>Log In</h1>
 
 <%= form_tag sessions_path do %>
-<div class="row ">
-    <div class="field col-md-2 col-md-offset-3">
-        <%= label_tag :email, 'Email' %>
-    </div>
-    <div class="field col-md-2">
-        <%= text_field_tag :email %>
-    </div>
-</div>
-<div class="row ">
-    <div class="field col-md-2 col-md-offset-3">
-        <%= label_tag :password, 'Password' %>
-    </div>
-    <div class="field col-md-2">
-        <%= password_field_tag :password %>
-    </div>
-</div>
-<div class="row ">
-    <div class="field col-md-2 col-md-offset-5">
-        <%= link_to "I forgot my password", password_resets_path %>
-    </div>
-</div>
-<div class="row ">
-    <div class="field col-md-2 col-md-offset-5">
-        <%= label_tag :remember_me %>
+        <%= label_tag :email, 'Email', class: 'white-font'  %>
+        <%= text_field_tag :email, nil, class: 'form-control' %>
+        <%= label_tag :password, 'Password', class: 'white-font'  %>
+        <%= password_field_tag :password, nil, class: 'form-control' %>
+        <%= label_tag :remember_me, nil, class: 'white-font'  %>
         <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-    </div>
-</div>
     <div class="actions" >
+        <%= link_to "I forgot my password", password_resets_path, class: 'btn btn-default btn-lg outline' %>
         <%= submit_tag "Login", class: 'btn btn-default btn-lg outline'%>
     </div>
 </div>

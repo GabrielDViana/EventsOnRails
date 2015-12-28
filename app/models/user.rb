@@ -1,6 +1,6 @@
 # Model do usuario, chama as validações
 class User < ActiveRecord::Base
-    attr_accessible :nickname, :complete_name, :email, :password, :terms
+    attr_accessible :nickname, :complete_name, :email, :password, :terms, :profile_image
     has_secure_password
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
     has_attached_file :profile_image
     validates_attachment    :profile_image,
-        profile_image_content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
 # Ativação do email
     def email_activate

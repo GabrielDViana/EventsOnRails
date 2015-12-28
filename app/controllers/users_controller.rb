@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     end
 # Metodo update permitira que o usuário faça a edição dos dados que achar necessario
     def update
+        @user = User.find(params[:id])
         if @user.update(user_params)
             redirect_to @user, notice: 'User was successfully updated.'
         else
