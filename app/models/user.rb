@@ -1,6 +1,7 @@
 # Model do usuario, chama as validações
 class User < ActiveRecord::Base
-    attr_accessible :nickname, :complete_name, :email, :password, :terms, :profile_image
+    attr_accessible :nickname, :complete_name, :email, :password, :terms,
+        :profile_image, :birthday
     has_secure_password
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
@@ -36,9 +37,14 @@ class User < ActiveRecord::Base
     validates   :terms,
                 :acceptance => true
 
-    has_attached_file :profile_image
+    has_attached_file   :profile_image
     validates_attachment    :profile_image,
         content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
+    validates_date  :birthday,
+                    on_or_after: lambda { 125.years.ago },
+                    on_or_before: lambda { 16.years.ago },
+                    :message => 'Sorry, invalid date'
 
 # Ativação do email
     def email_activate

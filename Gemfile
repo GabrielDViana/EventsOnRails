@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-
+# Use validates_timeliness to validate all dates
+gem 'validates_timeliness'
+# Use paperclip to upload images
 gem "paperclip", "~> 4.3"
 # Use protected_attributes
 gem 'protected_attributes'
