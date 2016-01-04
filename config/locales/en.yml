@@ -28,3 +28,4 @@ en:
                         birthday:
                             on_or_after: 'Sorry, Invalid Date of Birth Entered.(125 years maximum)'
                             on_or_before: 'Sorry, Invalid Date of Birth Entered.(16 years minimum)'
+                            invalid_date: 'Invalid Birthday format'

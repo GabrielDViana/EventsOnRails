@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230150944) do
+ActiveRecord::Schema.define(version: 20160104185945) do
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151230150944) do
     t.integer  "profile_image_file_size"
     t.datetime "profile_image_updated_at"
     t.date     "birthday"
+    t.string   "experience"
   end
 
 end

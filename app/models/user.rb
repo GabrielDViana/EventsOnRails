@@ -1,7 +1,7 @@
 # Model do usuario, chama as validações
 class User < ActiveRecord::Base
     attr_accessible :nickname, :complete_name, :email, :password, :terms,
-        :profile_image, :birthday
+        :profile_image, :birthday, :experience
     has_secure_password
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
                     with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
                 }
     validates   :password,
+                :on => :create,
                 length:{
                     minimum: 6,
                     maximum: 20
@@ -42,10 +43,13 @@ class User < ActiveRecord::Base
         content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
     validates_date  :birthday,
+                    :on => :update,
                     on_or_after: lambda { 125.years.ago },
-                    on_or_before: lambda { 16.years.ago },
-                    :message => 'Sorry, invalid date'
+                    on_or_before: lambda { 16.years.ago }
 
+    validates   :experience,
+                :on => :update,
+                length:{ maximum: 300 }
 # Ativação do email
     def email_activate
         self.email_confirmed = true

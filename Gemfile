@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use devise to authentication improvement
+gem 'devise', github: 'plataformatec/devise', branch: 'master'
 # Use validates_timeliness to validate all dates
 gem 'validates_timeliness'
 # Use paperclip to upload images
