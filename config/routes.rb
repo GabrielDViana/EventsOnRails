@@ -1,14 +1,25 @@
 Rails.application.routes.draw do
 
+  get 'caps/index'
+
+    get 'caps/show'
+
+    get 'caps/new'
+    get 'caps/create'
+    get 'caps/edit'
+    get 'caps/destroy'
+
+    resources :caps
     resources :password_resets
-    
+    resources :users
+
 # Essas são as rotas das URLs
     resources :sessions, only: [:new, :create, :destroy]
+
     get 'signup', to: 'users#new', as: 'signup'
     get 'login', to: 'sessions#new', as: 'login'
     get 'logout', to: 'sessions#destroy', as: 'logout'
 
-    resources :users
     get 'user/index'
     get 'new_cap/index'
     root 'new_cap#index'

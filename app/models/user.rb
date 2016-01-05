@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     has_secure_password
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
+    has_many :caps, dependent: :destroy
 
     validates   :nickname,
                 presence: true,

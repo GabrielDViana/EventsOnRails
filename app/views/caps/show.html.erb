@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Usuario:</strong>
+  <%= @cap.user.complete_name %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @cap.title %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @cap.area %>
+</p>
+
+<p>
+  <strong>Data e Horário:</strong>
+  <%= @cap.date %>
+</p>
+
+<%= link_to 'Edit', edit_cap_path(@cap) %> |
+<%= link_to 'Back', caps_path %>

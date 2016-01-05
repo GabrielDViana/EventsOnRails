@@ -1,0 +1,18 @@
+<h1 class='white-font'>New Cap</h1>
+
+<%= render 'form' %>
+
+<%= form_for(@cap) do |f| %>
+
+        <%= f.label :title, "Titulo:", class: 'white-font' %>
+        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.label :area, "Área:", class: 'white-font' %>
+        <%= f.text_field :area, class: 'form-control' %>
+        <%= f.label :date, "Data e Horário:", class: 'white-font' %>
+        <%= f.datetime_local_field :date, class: 'form-control' %>
+        <%= f.submit "Criar", class: 'btn btn-default btn-lg outline'%>
+        <%= link_to "Voltar ", caps_path,
+        class: 'btn btn-default btn-lg outline
+            glyphicon glyphicon glyphicon-remove'%>
+    </div>
+<% end %>

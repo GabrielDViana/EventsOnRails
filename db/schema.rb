@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104185945) do
+ActiveRecord::Schema.define(version: 20160105231656) do
+
+  create_table "caps", force: :cascade do |t|
+    t.string   "title"
+    t.string   "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.datetime "date"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname"
@@ -25,7 +34,6 @@ ActiveRecord::Schema.define(version: 20160104185945) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.string   "pofile_image_file_name"
     t.string   "profile_image_file_name"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Caps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dono</th>
+      <th>Titulo</th>
+      <th>Area</th>
+      <th>Data e Horario</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caps.each do |cap| %>
+      <tr>
+        <td><%= cap.user.complete_name %></td>
+        <td><%= cap.title %></td>
+        <td><%= cap.area %></td>
+        <td><%= cap.date %></td>
+        <td><%= link_to 'Show', cap %></td>
+        <td><%= link_to 'Remove', cap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New', new_cap_path %>
