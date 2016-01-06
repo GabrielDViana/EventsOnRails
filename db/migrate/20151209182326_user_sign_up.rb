@@ -5,7 +5,7 @@ class UserSignUp < ActiveRecord::Migration
       f.string :complete_name
       f.string :email
       f.string :password_digest
-      f.boolean :email_confirmed, default => false
+      f.boolean :email_confirmed
       f.string :confirm_token
       f.timestamps null: false
     end
