@@ -24,6 +24,8 @@
     <span class="btn btn-default btn-file">
         Browse Files<%= f.file_field :profile_image, class: 'form-control' %>
     </span>
+    <%= f.label :address, "Endereço:", class: 'white-font' %>
+    <%= f.text_field :address, class: 'form-control' %>
 
     <div class="actions" >
         <%= f.submit "Update Profile", class: 'btn btn-default btn-lg outline'%>

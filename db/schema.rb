@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105234511) do
+ActiveRecord::Schema.define(version: 20160107231151) do
 
   create_table "caps", force: :cascade do |t|
     t.string   "title"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20160105234511) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.datetime "date"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,6 +43,9 @@ ActiveRecord::Schema.define(version: 20160105234511) do
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"
     t.datetime "profile_image_updated_at"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end

@@ -36,7 +36,8 @@ class CapsController < ApplicationController
         end
 
         def cap_params
-            params.require(:cap).permit(:title, :area, :date, :time)
+            params.require(:cap).permit(:title, :area, :date, :time, :address,
+                :latitude, :longitude)
         end
 
         def authorize

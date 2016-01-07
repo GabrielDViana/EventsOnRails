@@ -18,6 +18,17 @@
   <strong>Data e Horário:</strong>
   <%= @cap.date %>
 </p>
+
+<p>
+  <strong>Local do cap:</strong>
+  <%= @cap.address %>
+</p>
+
+<p>
+  <strong>Distancia do cap:</strong>
+  <%= @cap.distance_to([current_user.latitude, current_user.longitude]) %>
+</p>
+
 <% if logged_in? && current_user = @cap.user%>
 <%= link_to 'Edit', edit_cap_path(@cap) %> |
 <% end %>

@@ -28,5 +28,18 @@ banco local, possivelmente não haverá aplicação para a mesma -->
   <%= @user.experience %>
 </p>
 
+<p>
+  <strong>Endereço:</strong>
+  <%= @user.address %>
+</p>
+<p>
+  <strong>Latitude:</strong>
+  <%= @user.latitude %>
+</p>
+<p>
+  <strong>Longitude:</strong>
+  <%= @user.longitude %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use geocoder to add location to an object
+gem 'geocoder'
 # Use devise to authentication improvement
 gem 'devise', github: 'plataformatec/devise', branch: 'master'
 # Use validates_timeliness to validate all dates
