@@ -18,6 +18,7 @@
   <strong>Data e Horário:</strong>
   <%= @cap.date %>
 </p>
-
+<% if logged_in? && current_user = @cap.user%>
 <%= link_to 'Edit', edit_cap_path(@cap) %> |
+<% end %>
 <%= link_to 'Back', caps_path %>

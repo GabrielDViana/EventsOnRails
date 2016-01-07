@@ -1,6 +1,6 @@
 class CapsController < ApplicationController
     before_action :set_cap, only: [:show, :edit, :update, :destroy]
-
+    before_action :authorize, except: [:show, :index]
     def index
         @caps = Cap.all
     end
@@ -37,5 +37,16 @@ class CapsController < ApplicationController
 
         def cap_params
             params.require(:cap).permit(:title, :area, :date, :time)
+        end
+
+        def authorize
+            if current_user.nil?
+                redirect_to login_url, notice:
+                    "Não autorizado, por favor faça login"
+            else
+                if @cap && @cap.user != current_user
+                    redirect_to root_path, notice: "Usuário não autorizado!"
+                end
+            end
         end
 end
