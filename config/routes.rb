@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'caps/index'
+    get 'tags/:tag', to: 'caps#index', as: :tag
 
+    get 'caps/index'
     get 'caps/show'
-
     get 'caps/new'
     get 'caps/create'
     get 'caps/edit'
