@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
- gem 'acts-as-taggable-on'
+
+# Use acts-as-taggable-on to set tags on objects
+gem 'acts-as-taggable-on'
 # Use geocoder to add location to an object
 gem 'geocoder'
 # Use devise to authentication improvement
