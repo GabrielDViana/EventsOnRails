@@ -7,7 +7,7 @@
         <%= f.label :title, "Titulo:", class: 'white-font' %>
         <%= f.text_field :title, class: 'form-control' %>
         <%= f.label :tag_list, "Área:", class: 'white-font' %>
-        <%= f.text_field :tag_list, class: 'form-control' %>
+        <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
         <%= f.label :date, "Data e Horário:", class: 'white-font' %>
         <%= f.datetime_local_field :date, class: 'form-control' %>
         <%= f.label :address, "Local do Cap:", class: 'white-font' %>
