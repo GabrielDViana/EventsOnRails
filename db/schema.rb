@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112174663) do
+ActiveRecord::Schema.define(version: 20160120215833) do
 
   create_table "caps", force: :cascade do |t|
     t.string   "title"
@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 20160112174663) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
   end
 
 end

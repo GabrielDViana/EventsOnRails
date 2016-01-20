@@ -1,13 +1,14 @@
 # Model do usuario, chama as validações
 class User < ActiveRecord::Base
     attr_accessible :nickname, :complete_name, :email, :password, :terms,
-        :profile_image, :birthday, :experience, :address, :latitude, :longitude
+        :profile_image, :birthday, :experience, :address, :latitude, :longitude,
+        :city, :state, :country
     has_secure_password
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
     has_many :caps, dependent: :destroy
     geocoded_by :address
-    
+
     after_validation    :geocode,
                         :on => :update,
                         :if => :address_changed?

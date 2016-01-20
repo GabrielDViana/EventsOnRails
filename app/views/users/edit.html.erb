@@ -21,11 +21,27 @@
     <div>
         <%= f.label :profile_image, "Foto de Perfil" %>
     </div>
-    <span class="btn btn-default btn-file">
-        Browse Files<%= f.file_field :profile_image, class: 'form-control' %>
-    </span>
+    <div>
+        <span class="btn btn-default btn-file">
+            Browse Files<%= f.file_field :profile_image, class: 'form-control' %>
+        </span>
+    </div>
     <%= f.label :address, "Endereço:", class: 'white-font' %>
-    <%= f.text_field :address, class: 'form-control' %>
+    <div id="locationField">
+        <%= f.text_field :address, :onfocus => "geolocate()",
+            :placeholder => "Seu endereço", :id => 'autocomplete',
+            class: 'form-control' %>
+    </div>
+
+    <%= f.label :city, "Cidade:", class: 'white-font' %>
+    <%= f.text_field :city, :id => 'locality', class: 'form-control',
+        :disabled => 'true'-%>
+    <%= f.label :state, "Estado:", class: 'white-font' %>
+    <%= f.text_field :state, :id => 'administrative_area_level_1',
+        class: 'form-control', :disabled => 'true'-%>
+    <%= f.label :country, "País:", class: 'white-font' %>
+    <%= f.text_field :country, :id => 'country', class: 'form-control',
+        :disabled => 'true'-%>
 
     <div class="actions" >
         <%= f.submit "Update Profile", class: 'btn btn-default btn-lg outline'%>
@@ -33,4 +49,16 @@
         class: 'btn btn-default btn-lg outline
             glyphicon glyphicon glyphicon-remove'%>
     </div>
+
+        <input id="street_number" style="display:none;"></input>
+        <input  id="route" style="display:none;"></input>
+        <input  id="locality" style="display:none;"></input>
+        <input id="administrative_area_level_1" style="display:none;"></input>
+        <input  id="postal_code" style="display:none;"></input>
+        <input id="country" style="display:none;"></input>
+
+        <script src="javascripts/application.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDChvz7UKPFqsIuiqkmdZVGY5Nu0OUthM&signed_in=true&libraries=places&callback=initAutocomplete"
+            async defer></script>
+
 <% end %>
