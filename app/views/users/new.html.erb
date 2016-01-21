@@ -1,30 +1,64 @@
-<h1 class='white-font'>Sign up</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>NewCap - Registrar</title>
+  <link href="assets/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/stylesheets/css/animate.min.css" rel="stylesheet">
+  <link href="assets/stylesheets/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/stylesheets/css/lightbox.css" rel="stylesheet">
+  <link href="assets/stylesheets/css/signup.css" rel="stylesheet">
+  <link id="css-preset" href="assets/stylesheets/css/presets/preset1.css" rel="stylesheet">
+  <link href="assets/stylesheets/css/responsive.css" rel="stylesheet">
 
-<%= render 'form' %> <!--Renderiza a pagina form.html.erb-->
+  <%= render 'form' %> <!--Renderiza a pagina form.html.erb-->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+  <![endif]-->
 
-<!-- O front-end aqui estará se comunicando com a Controller, que irá validar os
-atributos que serão passados -->
-
-<%= form_for(@user) do |f| %>
-
-            <%= f.label :nickname, "Nickname:", class: 'white-font' %>
-            <%= f.text_field :nickname, class: 'form-control' %>
-            <%= f.label :complete_name, "Complete name:", class: 'white-font' %>
-            <%= f.text_field :complete_name, class: 'form-control' %>
-            <%= f.label :email, "E-mail:", class: 'white-font' %>
-            <%= f.text_field :email, class: 'form-control' %>
-            <%= f.label :password, "Password:", class: 'white-font' %>
-            <%= f.password_field :password, class: 'form-control' %>
-            <%= f.label :password_confirmation, "Password Confirmation:",
-            class: 'white-font' %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="#">
+</head><!--/head-->
+<body>
+  <section id="signup">
+    <div class="container">
+      <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+          <h2>Registrar</h2>
+          <p>Cadastre-se e faça parte da comunidade NewCap!</p>
+        </div>
+      </div>
+      <div class="buttonHolder">
+        <%= form_for(@user) do |f| %>
+            <%= f.text_field :nickname, :placeholder => "Nickname" %>
+            <%= f.text_field :complete_name, :placeholder => "Nome Completo" %>
+            <%= f.text_field :email, :placeholder => "E-mail" %>
+            <%= f.password_field :password, :placeholder => "Senha" %>
             <%= f.password_field :password_confirmation,
-            class: 'form-control' %>
+                :placeholder => "Confirmação de senha" %>
             <%= f.check_box :terms %>
-            <%= f.label :terms, "I accept terms of service" %>
-    <div class="actions" >
-        <%= f.submit "Sign up", class: 'btn btn-default btn-lg outline'%>
-        <%= link_to "Back ", users_path,
-        class: 'btn btn-default btn-lg outline
-            glyphicon glyphicon glyphicon-remove'%>
+            <%= f.label :terms, "Eu aceito os termos de serviço" %>
+			<button id="submit"><%= f.submit "Entrar"%></button>
+		<% end %>
+      </div>
     </div>
-<% end %>
+  </section><!--/#signup-->
+
+
+  <script type="text/javascript" src="assets/javascripts/js/jquery.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/jquery.inview.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/wow.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/mousescroll.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/smoothscroll.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/lightbox.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/btnSignUp.js"></script>
+  <script type="text/javascript" src="assets/javascripts/js/main.js"></script>
+
+</body>
+</html>

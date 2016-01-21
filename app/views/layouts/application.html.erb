@@ -23,23 +23,15 @@
     <% end %>
 </div>
 
-<div class="container-fluid">
+<div class="container-full">
     <% flash.each do |key, value| %>
         <%= content_tag(:div, class: "alert alert-#{key}") do %>
             <p><%= value %></p>
         <% end %>
     <% end %>
 
-    <div class="row">
-        <% if logged_in? %>
-            <div class="col-sm-9">
-                <%= yield %>
-            </div>
-        <% else %>
-            <div class="col-sm-4 login-signup-content">
-                <%= yield %>
-            </div>
-        <% end %>
+    <%= yield %>
+
     </div>
 </div>
 
