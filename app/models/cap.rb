@@ -1,5 +1,6 @@
 class Cap < ActiveRecord::Base
-    attr_accessible :user, :adress,:title,:area, :date, :tag_list
+    attr_accessible :user, :adress,:title,:area, :date, :tag_list, :city,
+        :state, :country
     belongs_to :user
     geocoded_by :address
     acts_as_taggable

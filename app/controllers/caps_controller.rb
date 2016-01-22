@@ -1,7 +1,7 @@
 class CapsController < ApplicationController
     before_action :set_cap, only: [:show, :edit, :update, :destroy]
     before_action :authorize, except: [:show, :index]
-    
+
     def index
         if params[:tag]
             @caps = Cap.tagged_with(params[:tag])
@@ -42,7 +42,7 @@ class CapsController < ApplicationController
 
         def cap_params
             params.require(:cap).permit(:title, :area, :date, :time, :address,
-                :latitude, :longitude, :tag_list)
+                :latitude, :longitude, :tag_list, :city, :state, :country)
         end
 
         def authorize
