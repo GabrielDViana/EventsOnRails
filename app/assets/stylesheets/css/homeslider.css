@@ -128,3 +128,7 @@
   -webkit-animation: bounce 3000ms infinite;
   animation: bounce 3000ms infinite;
 }
+
+#background-1 .bg{
+    background-image: url(../../assets/images/shutterstock_307873628.jpg)
+}

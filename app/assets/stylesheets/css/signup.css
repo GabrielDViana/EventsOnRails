@@ -10,7 +10,7 @@
   z-index: 2;
 
 }
-#signup form input {
+#signup form input[type=password],input[type=text] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;

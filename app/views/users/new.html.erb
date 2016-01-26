@@ -31,18 +31,19 @@
           <h2>Registrar</h2>
           <p>Cadastre-se e faça parte da comunidade NewCap!</p>
         </div>
-      </div>
-      <div class="buttonHolder">
+
         <%= form_for(@user) do |f| %>
-            <%= f.text_field :nickname, :placeholder => "Nickname" %>
-            <%= f.text_field :complete_name, :placeholder => "Nome Completo" %>
-            <%= f.text_field :email, :placeholder => "E-mail" %>
-            <%= f.password_field :password, :placeholder => "Senha" %>
-            <%= f.password_field :password_confirmation,
-                :placeholder => "Confirmação de senha" %>
-            <%= f.check_box :terms %>
-            <%= f.label :terms, "Eu aceito os termos de serviço" %>
-			<button id="submit"><%= f.submit "Entrar"%></button>
+            <div class="buttonHolder">
+                <%= f.text_field :nickname, :placeholder => "Nickname" %>
+                <%= f.text_field :complete_name, :placeholder => "Nome Completo" %>
+                <%= f.text_field :email, :placeholder => "E-mail" %>
+                <%= f.password_field :password, :placeholder => "Senha" %>
+                <%= f.password_field :password_confirmation,
+                    :placeholder => "Confirmação de senha" %>
+                <%= f.check_box :terms %>
+                <%= f.label :terms, "Eu aceito os termos de serviço" %>
+			    <button id="submit"><%= f.submit "Entrar"%></button>
+            </div>
 		<% end %>
       </div>
     </div>

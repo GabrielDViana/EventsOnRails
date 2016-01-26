@@ -20,13 +20,6 @@
     AS CSS's serao inicialmente colocadas neste arquivo
 ******************************************************/
 
-body {
-    background-image: url('background.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
 
 .white-font{
     color:white;
