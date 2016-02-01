@@ -10,8 +10,11 @@
         <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
         <%= f.label :date, "Data e Horário:", class: 'white-font' %>
         <%= f.datetime_local_field :date, class: 'form-control' %>
-        <%= f.label :address, "Local do Cap:", class: 'white-font' %>
-        <%= f.text_field :address, class: 'form-control' %>
+        <div id="locationField">
+            <%= f.text_field :address, :onfocus => "geolocate()",
+                :placeholder => "Seu endereço", :id => 'autocomplete',
+                class: 'form-control' %>
+        </div>
         <%= f.label :city, "Cidade:", class: 'white-font' %>
         <%= f.text_field :city, :id => 'locality', class: 'form-control',
             :disabled => 'true'-%>

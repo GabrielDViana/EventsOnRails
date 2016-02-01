@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
     has_secure_password
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
-    has_many :caps, dependent: :destroy
+    has_many :participations
+    has_many :caps, dependent: :destroy, through: :participation
     geocoded_by :address
 
     after_validation    :geocode,

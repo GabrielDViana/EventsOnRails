@@ -26,9 +26,10 @@
         <td><%= cap.date %></td>
         <td><%= link_to 'Show', cap %></td>
         <% if logged_in? && current_user = cap.user%>
-            <td><%= link_to 'Remove', cap, method: :delete,
+            <td><%= link_to 'Remove', cap_path(cap), method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        <td><%= link_to 'Participar', new_cap_participation_path(cap) %></td>
 
       </tr>
     <% end %>

@@ -4,6 +4,8 @@ class Cap < ActiveRecord::Base
     belongs_to :user
     geocoded_by :address
     acts_as_taggable
+    has_many :participations
+    has_many :users, through: :participations
 
     after_validation    :geocode,
                         :if => :address_changed?

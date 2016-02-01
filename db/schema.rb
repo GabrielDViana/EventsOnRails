@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120215833) do
+ActiveRecord::Schema.define(version: 20160128235536) do
 
   create_table "caps", force: :cascade do |t|
     t.string   "title"
@@ -23,7 +23,18 @@ ActiveRecord::Schema.define(version: 20160120215833) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
   end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cap_id"
+  end
+
+  add_index "participations", ["cap_id"], name: "index_participations_on_cap_id"
+  add_index "participations", ["user_id"], name: "index_participations_on_user_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

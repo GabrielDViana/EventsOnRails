@@ -1,0 +1,9 @@
+<%= form_for @participation, url: {action: "create"} do |f| %>
+  <%= f.fields_for :user, current_user do |builder| %>
+    <fieldset>
+      <%= builder.label :complete_name, "First Name" %><br />
+      <%= builder.text_field :complete_name %><br />
+    </fieldset>
+  <% end %>
+  <%= f.submit "Participar", class: 'btn btn-default btn-lg outline' %>
+<% end %>

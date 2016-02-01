@@ -32,7 +32,7 @@ class CapsController < ApplicationController
 
     def destroy
         @cap.destroy
-        redirect_to cap_url, notice: 'Cap deletado!'
+        redirect_to caps_path, notice: 'Cap deletado!'
     end
 
     private
