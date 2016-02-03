@@ -2,24 +2,24 @@
 <html>
 <head>
     <title>NewCap</title>
-    <%= stylesheet_link_tag    'application', media: 'all',
+    <%= stylesheet_link_tag 'application', media: 'all',
     'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track', 'jquery',
+    'bootstrap.min', 'jquery.inview.min', 'wow.min', 'mousescroll',
+    'smoothscroll', 'jquery.countTo', 'lightbox.min', 'btnSignUp',
+    'main' => true %>
     <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= render 'layouts/header' %>
 
 <div class="container-full">
-    <% flash.each do |key, value| %>
+    <!-- <% flash.each do |key, value| %>
         <%= content_tag(:div, class: "alert alert-#{key}") do %>
             <p><%= value %></p>
         <% end %>
-    <% end %>
-
+    <% end %> -->
     <%= yield %>
-
     </div>
 </div>
 
