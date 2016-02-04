@@ -8,7 +8,7 @@
 }
 
 #contact-us {
-  background-image:url(../images/contact-bg.jpg);
+  background-image:url('/assets/contact-bg.jpg');
   padding-bottom: 90px;
 }
 

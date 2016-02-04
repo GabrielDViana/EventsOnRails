@@ -2,7 +2,7 @@
 ********About CSS*******
 **************************/
 #about-us {
-  background-image: url(../images/about-bg.jpg);
+  background-image: url('/assets/about-bg.jpg');
   padding: 60px 0;
 }
 

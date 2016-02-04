@@ -25,21 +25,21 @@
   <header id="home">
     <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="item active" style="background: image-url('shutterstock_307873628.jpg');">
+        <div class="item active" style="background-image: url('/assets/shutterstock_307873628.jpg');">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Bem vindo a <span>NewCap</span></h1>
             <p class="animated fadeInRightBig">Conectando pessoas pelo conhecimento</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Entrar</a>
           </div>
         </div>
-        <div class="item" style="background: image-url('shutterstock_234372322.jpg');">
+        <div class="item" style="background-image: url('/assets/shutterstock_234372322.jpg');">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Seja um <span>Participante</span></h1>
             <p class="animated fadeInRightBig">Aprenda em qualquer lugar do mundo o que quiser</p>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Experimente</a>
           </div>
         </div>
-        <div class="item" style="background: image-url('shutterstock_217119211.jpg');">
+        <div class="item" style="background-image: url('/assets/shutterstock_217119211.jpg');">
           <div class="caption">
             <h1 class="animated fadeInLeftBig">Ou seja um <span>Expositor</span></h1>
             <p class="animated fadeInRightBig">Ensine em qualquer lugar do mundo no horário que quiser</p>
@@ -514,22 +514,7 @@
 
   <section id="team">
     <div class="container">
-      <div class="row">
-        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
-          <h2>Registrar</h2>
-          <p>Cadastre-se e faça parte da comunidade NewCap!</p>
-        </div>
-      </div>
-      <div class="buttonHolder">
-        <form class="form">
-			       <input type="text" placeholder="Nome Completo">
-			        <input type="text" placeholder="Username">
-			        <input type="text" placeholder="Email">
-			        <input type="password" placeholder="Senha">
-			        <input type="password" placeholder="Confirme Senha">
-			        <button type="submit" id="submit">Enviar</button>
-		    </form>
-      </div>
+      <%= render :template => "users/new"%>
     </div>
   </section><!--/#team-->
 

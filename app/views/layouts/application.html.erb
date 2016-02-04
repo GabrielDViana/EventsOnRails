@@ -2,8 +2,10 @@
 <html>
 <head>
     <title>NewCap</title>
-    <%= stylesheet_link_tag 'application', media: 'all',
+    <%= stylesheet_link_tag 'application', 'bootstrap.min', 'animate.min',
+    'font-awesome.min', 'lightbox', 'main', 'responsive', media: 'all',
     'data-turbolinks-track' => true %>
+    <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track', 'jquery',
     'bootstrap.min', 'jquery.inview.min', 'wow.min', 'mousescroll',
     'smoothscroll', 'jquery.countTo', 'lightbox.min', 'btnSignUp',

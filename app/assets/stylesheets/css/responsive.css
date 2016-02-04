@@ -1,4 +1,4 @@
-/* lg */ 
+/* lg */
 @media (min-width: 1200px) {
 
 }
@@ -94,8 +94,8 @@
 		margin-bottom: 32px;
 		padding-bottom: 20px;
 	}
-	.our-services .col-sm-4:nth-child(4), 
-	.our-services .col-sm-4:nth-child(5), 
+	.our-services .col-sm-4:nth-child(4),
+	.our-services .col-sm-4:nth-child(5),
 	.our-services .col-sm-4:nth-child(6) {
 		padding-top: 0;
 	}
@@ -116,9 +116,9 @@
 	.team-member {
 		margin-bottom: 50px;
 	}
-	.team-members .col-sm-3, 
-	.pricing-table .col-sm-3, 
-	#portfolio .col-sm-3, 
+	.team-members .col-sm-3,
+	.pricing-table .col-sm-3,
+	#portfolio .col-sm-3,
 	.blog-posts .col-sm-4  {
 		width: 50%;
 		float: left;
@@ -128,7 +128,7 @@
 		height: 30px;
 		line-height: 30px;
 		width: 30px;
-	}	
+	}
 	.count .col-xs-6 {
 		margin-bottom: 35px;
 	}
@@ -170,7 +170,7 @@
 	#twitter {
 		padding-bottom: 75px;
 	}
-	.twitter-left-control, 
+	.twitter-left-control,
 	.twitter-right-control {
 		top: inherit;
 		bottom: 30px;
@@ -181,7 +181,7 @@
 	}
 	.twitter-left-control {
 		left: 40%
-	} 
+	}
 	.twitter-right-control {
 		right: 40%
 	}
@@ -218,12 +218,11 @@
 /* XS Portrait */
 @media (max-width: 479px) {
   
-	.team-members .col-sm-3, 
-	.pricing-table .col-sm-3, 
-	#portfolio .col-sm-3, 
+	.team-members .col-sm-3,
+	.pricing-table .col-sm-3,
+	#portfolio .col-sm-3,
 	.blog-posts .col-sm-4 {
 		width:100%;
 		float: none;
 	}
 }
-
