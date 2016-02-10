@@ -1,45 +1,40 @@
 <!-- Esta pagina tem como fim apenas mostrar os usuarios que foram salvos no
 banco local, possivelmente não haverá aplicação para a mesma -->
-
+<%= render 'layouts/header' %>
 <p id="notice"><%= notice %></p>
 <%= render 'profile_bar' %>
-<p>
-  <strong>Nickname:</strong>
-  <%= @user.nickname %>
-</p>
+<div class="container">
+  <div class="col-sm-9 content main-content">
+    <h1><%= @user.complete_name %></h1>
 
-<p>
-  <strong>Complete name:</strong>
-  <%= @user.complete_name %>
-</p>
+    <table class="table">
+      <tr>
+        <td><b>Usuário:</b> <%= @user.nickname %></td>
+      </tr>
+      <tr>
+        <td><b>E-mail:</b> <%= @user.email %></td>
+      </tr>
+      <tr>
+        <td><b>Membro desde:</b> <%= @user.created_at.strftime(" %d/%m/%Y ") %></td>
+      </tr>
+      <tr>
+        <td><b>Aniversario:</b> <%= @user.birthday %></td>
+      </tr>
+      <tr>
+        <td><b>Experiencia:</b> <%= @user.experience %></td>
+      </tr>
+      <% if logged_in? && current_user = @user%>
+      <tr>
+        <td><b>Endereço:</b> <%= @user.address %></td>
+      </tr>
+      <% end %>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @user.birthday %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Experience:</strong>
-  <%= @user.experience %>
-</p>
-
-<p>
-  <strong>Endereço:</strong>
-  <%= @user.address %>
-</p>
-<p>
-  <strong>Latitude:</strong>
-  <%= @user.latitude %>
-</p>
-<p>
-  <strong>Longitude:</strong>
-  <%= @user.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <% if logged_in? && current_user = @user%>
+        <tr>
+          <td><%= link_to "Editar", edit_user_path, class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
