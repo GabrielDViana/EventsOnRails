@@ -468,64 +468,6 @@ section {
 /*************************
 *********Team CSS*********
 **************************/
-#team {
-  padding-top: 0;
-
-}
-
-.buttonHolder{ text-align: center; }
-
-#team form {
-  position: relative;
-  z-index: 2;
-
-}
-#team form input {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  outline: 0;
-  border: 1px solid #085078;
-  background-color: rgba(255, 255, 255, 0.2);
-  width: 250px;
-  border-radius: 3px;
-  padding: 10px 15px;
-  margin: 0 auto 10px auto;
-  display: block;
-  text-align: center;
-  font-size: 18px;
-  -webkit-transition-duration: 0.25s;
-          transition-duration: 0.25s;
-  font-weight: 300;
-}
-#team form input:hover {
-  background-color: #f5f7f9;
-}
-#team form input:focus {
-  background-color: white;
-  width: 300px;
-
-}
-#team form button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  outline: 0;
-  background-color: white;
-  border: 1px solid #085078;
-  padding: 10px 15px;
-  color: #085078;
-  border-radius: 3px;
-  width: 250px;
-  cursor: pointer;
-  font-size: 18px;
-
-  -webkit-transition-duration: 0.25s;
-          transition-duration: 0.25s;
-}
-#team form button:hover {
-  background-color: #f5f7f9;
-}
 
 ::-webkit-input-placeholder {
    color: grey;
@@ -908,56 +850,6 @@ section {
 
 .btn-loadmore:hover {
   color:#fff;
-}
-
-/*************************
-**********Contact CSS*****
-**************************/
-
-.form-control {
-  background-color: transparent;
-  border-color: rgba(255,255,255,.1);
-  height: 50px;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-textarea.form-control {
-  min-height: 180px;
-  resize:none;
-}
-
-.form-group {
-  margin-bottom: 30px;
-}
-
-.contact-info {
-  padding-left:70px;
-  font-weight: 300;
-}
-
-ul.address {
-  margin-top: 30px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.contact-info ul li {
-  margin-bottom: 8px;
-}
-
-.contact-info ul li a {
-  color: #fff;
-}
-
-.btn-submit {
-  display: block;
-  padding: 12px;
-  width: 100%;
-  color: #fff;
-  border:0;
-  margin-top: 40px;
 }
 
 /*************************

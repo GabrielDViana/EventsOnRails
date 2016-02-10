@@ -50,7 +50,7 @@
       <a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
       <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
 
-      <a id="tohash" href="#services"><i class="fa fa-angle-down"></i></a>
+      <a id="tohash" href="#blog"><i class="fa fa-angle-down"></i></a>
 
     </div><!--/#home-slider-->
     <div class="main-nav">
@@ -512,9 +512,14 @@
     </div><!-- /#portfolio-single-wrap -->
   <!--</section><!--/#portfolio-->
 
-  <section id="team">
+  <section id="signupcontainer">
     <div class="container">
-      <%= render :template => "users/new"%>
+      <% if logged_in? %>
+          <li class="scroll"><%= link_to current_user.complete_name, current_user %></li>
+          <li class="scroll"><%= link_to "Log Out", logout_path %></li>
+      <% else %>
+          <%= render :template => "users/new"%>
+      <% end %>
     </div>
   </section><!--/#team-->
 
@@ -670,7 +675,7 @@
                 <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <input type="text" name="name" class="form-control" placeholder="Nome" required="required">
+                      <input name="name" class="form-control" placeholder="Nome" required="required">
                     </div>
                   </div>
                   <div class="col-sm-6">
@@ -680,7 +685,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="subject" class="form-control" placeholder="Assunto" required="required">
+                  <input name="subject" class="form-control" placeholder="Assunto" required="required">
                 </div>
                 <div class="form-group">
                   <textarea name="message" id="message" class="form-control" rows="4" placeholder="Escreva sua mensagem" required="required"></textarea>
