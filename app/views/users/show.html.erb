@@ -28,12 +28,6 @@ banco local, possivelmente não haverá aplicação para a mesma -->
         <td><b>Endereço:</b> <%= @user.address %></td>
       </tr>
       <% end %>
-
-      <% if logged_in? && current_user = @user%>
-        <tr>
-          <td><%= link_to "Editar", edit_user_path, class: "btn btn-primary" %></td>
-        </tr>
-      <% end %>
     </table>
   </div>
 </div>

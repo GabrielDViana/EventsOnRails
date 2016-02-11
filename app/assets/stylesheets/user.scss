@@ -2,17 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .profile-bar {
-    background: #222 none repeat scroll 0% 0%;
+    background: #028fcc none repeat scroll 0% 0%;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
     color: #333;
     text-align: center;
     padding: 20px 0px 20px 0px;
     height: 100%;
-    border-radius: 2.5% !important;
 }
 .profile-bar p#user-name {
-    color: #fff;
-    border-bottom: 1px solid #777;
+    color: white;
+    border-bottom: 1px solid white;
     font-size: 1.2em;
     font-weight: 600;
     margin-top: -10px;
@@ -21,24 +20,23 @@
 
 .profile-bar .profile-image {
   border-radius: 5px;
-  height: 9em;
-  width: 9em;
+  height: 13em;
+  width: 13em;
   margin: auto;
   overflow: hidden;
 }
 
 .profile-bar .profile-image img {
   margin: 0px auto;
-  width: 80%;
-  height: 80%;
-  border-radius: 20% !important;
+  width: 95%;
+  height: 95%;
+  border-radius: 15% !important;
 }
 
 .content {
-  background: #FFF none repeat scroll 0% 0%;
+  background: white none repeat scroll 0% 0%;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
   padding-bottom: 1.2em;
-  border-radius: 1% !important;
 }
 .main-content {
   padding-right: 4em;
