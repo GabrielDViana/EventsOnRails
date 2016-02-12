@@ -16,7 +16,7 @@ class CapsController < ApplicationController
 
     def create
         @cap = current_user.caps.build(cap_params)
-
+        @cap.user_id = current_user.id
         if @cap.save
             redirect_to @cap, notice: 'Cap criado!'
         else
