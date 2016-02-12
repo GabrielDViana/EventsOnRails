@@ -1,0 +1,95 @@
+#signup {
+  padding-top: 0;
+
+}
+
+.buttonHolder{ text-align: center; }
+
+#signup form {
+  position: relative;
+  z-index: 2;
+
+}
+#signup form input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  border: 1px solid #085078;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+  font-weight: 300;
+}
+#signup form input:hover {
+  background-color: #f5f7f9;
+}
+#signup form input:focus {
+  background-color: white;
+  width: 300px;
+
+}
+#signup form button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 1px solid #085078;
+  padding: 10px 15px;
+  color: #085078;
+  border-radius: 3px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+#signup form button:hover {
+  background-color: #f5f7f9;
+}
+
+::-webkit-input-placeholder {
+   color: grey;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: grey;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: grey;
+}
+
+:-ms-input-placeholder {
+   color: grey;
+}
+
+@-webkit-keyframes square {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-700px) rotate(600deg);
+            transform: translateY(-700px) rotate(600deg);
+  }
+}
+@keyframes square {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-700px) rotate(600deg);
+            transform: translateY(-700px) rotate(600deg);
+  }
+}

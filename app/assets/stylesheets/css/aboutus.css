@@ -1,0 +1,23 @@
+/*************************
+********About CSS*******
+**************************/
+#about-us {
+  background-image: url('/assets/about-bg.jpg');
+  padding: 60px 0;
+}
+
+#about-us h2 {
+  margin-top: 0;
+  color: #fff;
+}
+
+#about-us .lead {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#about-us h1 {
+  margin-bottom: 30px;
+}
+
+#about-us p{color:white;}

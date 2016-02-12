@@ -6,7 +6,16 @@
         </div>
         <div>
             <p id="user-name"><%= current_user.complete_name %></p>
-            <p><strong>Nível:</strong> XXXXX</p>
+            <p class="white-font"><strong>Nível:</strong> XXXXX</p>
+            <% if logged_in? && current_user = @user %>
+
+            <div>
+              <%= link_to 'Criar Cap', new_cap_path, class: 'white-font' %>
+            </div>
+            <div>
+              <%= link_to "Editar Perfil", edit_user_path, class: "white-font" %>
+            </div>
+            <% end %>
         </div>
     </div>
 </div>
