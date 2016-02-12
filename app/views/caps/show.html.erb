@@ -28,6 +28,8 @@
   <strong>Distancia do cap:</strong>
   <%= @cap.distance_to([current_user.latitude, current_user.longitude]) %>
 </p>
+<%= content_tag(:div, "", id: "google-map", class: "wow fadeIn", "data-latitude"=> @cap.latitude, "data-longitude"=> @cap.longitude, "data-wow-duration"=>"1000ms", "data-wow-delay"=>"400ms") %>
+<!-- <div id="google-map" class="wow fadeIn" data-latitude="-15.7942287" data-longitude="-47.8821658" data-wow-duration="1000ms" data-wow-delay="400ms"></div> -->
 
 <% if logged_in? && current_user = @cap.user%>
 <%= link_to 'Edit', edit_cap_path(@cap) %> |

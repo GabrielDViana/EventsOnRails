@@ -16,6 +16,10 @@
   padding-top: 95px;
 }
 
+#google-map {
+  height: 350px;
+}
+
 .form-control {
   background-color: transparent;
   border-color: rgba(255,255,255,.1);
