@@ -1,43 +1,73 @@
-<h1 class='white-font'>New Cap</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>NewCap - Registrar</title>
+  <%= render 'layouts/header' %><!--Renderiza a pagina form.html.erb-->
+  <%= render 'form' %>
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+  <![endif]-->
 
-<%= render 'form' %>
-
-<%= form_for(@cap) do |f| %>
-
-        <%= f.label :title, "Titulo:", class: 'white-font' %>
-        <%= f.text_field :title, class: 'form-control' %>
-        <%= f.label :tag_list, "Área:", class: 'white-font' %>
-        <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
-        <%= f.label :date, "Data e Horário:", class: 'white-font' %>
-        <%= f.datetime_local_field :date, class: 'form-control' %>
-        <div id="locationField">
-            <%= f.text_field :address, :onfocus => "geolocate()",
-                :placeholder => "Seu endereço", :id => 'autocomplete',
-                class: 'form-control' %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'
+      rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="#">
+</head><!--/head-->
+<body>
+  <section id="signup">
+    <div class="container">
+      <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp"
+            data-wow-duration="1200ms" data-wow-delay="300ms">
+          <h2>Registrar</h2>
+          <p>Cadastre-se e faça parte da comunidade NewCap!</p>
         </div>
-        <%= f.label :city, "Cidade:", class: 'white-font' %>
-        <%= f.text_field :city, :id => 'locality', class: 'form-control',
-            :disabled => 'true'-%>
-        <%= f.label :state, "Estado:", class: 'white-font' %>
-        <%= f.text_field :state, :id => 'administrative_area_level_1',
-            class: 'form-control', :disabled => 'true'-%>
-        <%= f.label :country, "País:", class: 'white-font' %>
-        <%= f.text_field :country, :id => 'country', class: 'form-control',
-            :disabled => 'true'-%>
 
-        <%= f.submit "Criar", class: 'btn btn-default btn-lg outline'%>
-        <%= link_to "Voltar ", caps_path,
-        class: 'btn btn-default btn-lg outline
-            glyphicon glyphicon glyphicon-remove'%>
+        <%= form_for(@cap) do |f| %>
 
-        <input id="street_number" style="display:none;"></input>
-        <input  id="route" style="display:none;"></input>
-        <input  id="locality" style="display:none;"></input>
-        <input id="administrative_area_level_1" style="display:none;"></input>
-        <input  id="postal_code" style="display:none;"></input>
-        <input id="country" style="display:none;"></input>
+                <%= f.label :title, "Titulo:", class: 'white-font' %>
+                <%= f.text_field :title, class: 'form-control' %>
+                <%= f.label :tag_list, "Área:", class: 'white-font' %>
+                <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
+                <%= f.label :date, "Data e Horário:", class: 'white-font' %>
+                <%= f.datetime_local_field :date, class: 'form-control' %>
+                <div id="locationField">
+                    <%= f.text_field :address, :onfocus => "geolocate()",
+                        :placeholder => "Seu endereço", :id => 'autocomplete',
+                        class: 'form-control' %>
+                </div>
+                <%= f.label :city, "Cidade:", class: 'white-font' %>
+                <%= f.text_field :city, :id => 'locality', class: 'form-control',
+                    :disabled => 'true'-%>
+                <%= f.label :state, "Estado:", class: 'white-font' %>
+                <%= f.text_field :state, :id => 'administrative_area_level_1',
+                    class: 'form-control', :disabled => 'true'-%>
+                <%= f.label :country, "País:", class: 'white-font' %>
+                <%= f.text_field :country, :id => 'country', class: 'form-control',
+                    :disabled => 'true'-%>
 
-        <script src="javascripts/application.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDChvz7UKPFqsIuiqkmdZVGY5Nu0OUthM&signed_in=true&libraries=places&callback=initAutocomplete"
-            async defer></script>
-<% end %>
+                <%= f.submit "Criar", class: 'btn btn-default btn-lg outline'%>
+                <%= link_to "Voltar ", caps_path,
+                class: 'btn btn-default btn-lg outline
+                    glyphicon glyphicon glyphicon-remove'%>
+
+                <input id="street_number" style="display:none;"></input>
+                <input  id="route" style="display:none;"></input>
+                <input  id="locality" style="display:none;"></input>
+                <input id="administrative_area_level_1" style="display:none;"></input>
+                <input  id="postal_code" style="display:none;"></input>
+                <input id="country" style="display:none;"></input>
+
+                <script src="javascripts/application.js"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDChvz7UKPFqsIuiqkmdZVGY5Nu0OUthM&signed_in=true&libraries=places&callback=initAutocomplete"
+                    async defer></script>
+        <% end %>
+      </div>
+    </div>
+  </section><!--/#signup-->
+</body>
+</html>w

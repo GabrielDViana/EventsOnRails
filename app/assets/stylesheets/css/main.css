@@ -4,10 +4,11 @@
 **************************/
 
 body {
-  font-family: Helvetica;
-  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
   line-height: 24px;
   color: #666;
+  background-color: #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,6 +69,7 @@ h3 {
   outline:none;
   outline-offset: 0;
   text-decoration:none;
+  background: transparent;
 }
 
 a {
@@ -272,7 +274,7 @@ section {
 ********Service CSS*******
 **************************/
 
-/*.service-icon {
+.service-icon {
   border-radius: 4px;
   color: #fff;
   display: inline-block;
@@ -313,8 +315,29 @@ section {
 /*************************
 ********About CSS*******
 **************************/
+#about-us {
+  background-image: url('/assets/about-bg.jpg');
+  padding: 60px 0;
+}
 
-/*.progress{
+#about-us h2 {
+  margin-top: 0;
+  color: #fff;
+}
+
+#about-us .lead {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#about-us h1 {
+  margin-bottom: 30px;
+}
+
+#about-us p{color:white;}
+
+
+.progress{
   height: 20px;
   background-color: #fff;
   border-radius: 0;
@@ -342,7 +365,8 @@ section {
 ********portfolio CSS*****
 **************************/
 
-/*#portfolio .col-sm-3  {
+#portfolio .container-fluid,
+#portfolio .col-sm-3  {
   overflow: hidden;
   padding: 0;
 }
@@ -468,45 +492,11 @@ section {
 /*************************
 *********Team CSS*********
 **************************/
-
-::-webkit-input-placeholder {
-   color: grey;
+#team {
+  padding-top: 0;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: grey;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: grey;
-}
-
-:-ms-input-placeholder {
-   color: grey;
-}
-
-@-webkit-keyframes square {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(-700px) rotate(600deg);
-            transform: translateY(-700px) rotate(600deg);
-  }
-}
-@keyframes square {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(-700px) rotate(600deg);
-            transform: translateY(-700px) rotate(600deg);
-  }
-}
-
-/*.team-members {
+.team-members {
   margin-bottom: 25px;
 }
 
@@ -588,7 +578,7 @@ section {
 /*************************
 *******Features CSS*******
 **************************/
-/*#features {
+#features {
   text-align: center;
   background-image: url(../images/features-bg.jpg);
 }
@@ -612,7 +602,7 @@ section {
 /*************************
 *****Pricing Table CSS****
 **************************/
-/*.pricing-table {
+.pricing-table {
   text-align: center;
 }
 
@@ -664,7 +654,7 @@ section {
 /*************************
 ********Twitter CSS*******
 **************************/
-/*#twitter {
+#twitter {
   background-image: url(../images/twitter-bg.jpg);
 }
 
@@ -850,6 +840,76 @@ section {
 
 .btn-loadmore:hover {
   color:#fff;
+}
+
+/*************************
+**********Contact CSS*****
+**************************/
+#contact h2{
+  margin-bottom: 20px;
+}
+#contact p{
+  color: white;
+  margin-bottom: 20px;
+}
+
+#contact-us {
+  background-image:url('/assets/contact-bg.jpg');
+  padding-bottom: 90px;
+}
+
+#contact-us .heading {
+  padding-top: 95px;
+}
+
+#google-map {
+  height: 350px;
+}
+
+.form-control {
+  background-color: transparent;
+  border-color: rgba(255,255,255,.1);
+  height: 50px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+textarea.form-control {
+  min-height: 180px;
+  resize:none;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.contact-info {
+  padding-left:70px;
+  font-weight: 300;
+}
+
+ul.address {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info ul li {
+  margin-bottom: 8px;
+}
+
+.contact-info ul li a {
+  color: #fff;
+}
+
+.btn-submit {
+  display: block;
+  padding: 12px;
+  width: 100%;
+  color: #fff;
+  border:0;
+  margin-top: 40px;
 }
 
 /*************************
