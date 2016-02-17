@@ -267,7 +267,6 @@ section {
 
 .navbar-brand h1 {
   margin-top: 5px;
-  color: white;
 }
 
 /*************************
@@ -333,9 +332,6 @@ section {
 #about-us h1 {
   margin-bottom: 30px;
 }
-
-#about-us p{color:white;}
-
 
 .progress{
   height: 20px;
@@ -580,7 +576,7 @@ section {
 **************************/
 #features {
   text-align: center;
-  background-image: url(../images/features-bg.jpg);
+  background-image: url('/assets/features-bg.jpg');
 }
 
 #features i {
@@ -655,7 +651,7 @@ section {
 ********Twitter CSS*******
 **************************/
 #twitter {
-  background-image: url(../images/twitter-bg.jpg);
+  background-image: url('assets/twitter-bg.jpg');
 }
 
 #twitter > div {
@@ -845,12 +841,14 @@ section {
 /*************************
 **********Contact CSS*****
 **************************/
-#contact h2{
-  margin-bottom: 20px;
+
+#contact {
+  padding-top: 45px;
+  padding-bottom: 0;
 }
-#contact p{
-  color: white;
-  margin-bottom: 20px;
+
+#google-map {
+  height: 350px;
 }
 
 #contact-us {
@@ -860,10 +858,6 @@ section {
 
 #contact-us .heading {
   padding-top: 95px;
-}
-
-#google-map {
-  height: 350px;
 }
 
 .form-control {
@@ -911,10 +905,6 @@ ul.address {
   border:0;
   margin-top: 40px;
 }
-
-/*************************
-**********Footer CSS*****
-**************************/
 
 #footer {
   color:#fff;

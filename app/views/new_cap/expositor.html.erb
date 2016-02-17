@@ -1,70 +1,56 @@
-<div class="row">
-  <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
-    <h2>Expositor</h2>
-    <p>Imagine se você pudesse ensinar em qualquer lugar do mundo, sem restrições...</p>
-    <p>Crie o projeto, escolha o local e faça isso!</p>
-    <p>Faça parte da NewCap e ajude a conectar pessoas pelo conhecimento.</p>
-    <p>Para ser um Expositor com a NewCap você não precisa ser ligado a nenhuma instituição de ensino, possuir certificações e muito menos de uma sala de aula convencional. </p>
-    <!--<p>É tudo muito simples. Você elabora um programa em nosso Criador de Caps, define o formato (roda de diálogo, palestra, workshop etc), a área do conhecimento e o conteúdo. Com o programa feito, é só escolher o horário, o local e indicar o valor a ser pago por cada participante e pronto, seu cap estará em nossa Prateleira.</p>-->
-    <!--<p>Todos os caps serão divulgados em nosso site, mas você também pode divulgá-lo em suas redes sociais. Compartilhe com grupos e amigos, assim mais gente interessada vai ficar sabendo. </p>-->
-  </div>
-</div>
-<div class="blog-posts">
   <div class="row">
-    <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
-      <div class="post-thumb">
-        <a href="#"><%= image_tag("blog/1.jpg", class: 'img-responsive')%></a>
-
-      </div>
-      <div class="entry-header">
-        <h3><a href="#">Crie seu cap</a></h3>
-      </div>
-      <div class="entry-content">
-        <p>Crie seu cap de um jeito simples e rápido. Utilize nosso template e recomende materiais de referência e pesquisa, assim os participantes poderão estudar antes.</p>
-      </div>
+    <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+      <h2>Expositor</h2>
+      <p>Imagine se você pudesse ensinar em qualquer lugar do mundo, sem restrições...</p>
+      <p>Crie o projeto, escolha o local e faça isso!</p>
+      <p>Faça parte da NewCap e ajude a conectar pessoas pelo conhecimento.</p>
+      <p>Para ser um Expositor com a NewCap você não precisa ser ligado a nenhuma instituição de ensino, possuir certificações e muito menos de uma sala de aula convencional. </p>
     </div>
-    <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-      <div class="post-thumb">
-        <div id="post-carousel"  class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#post-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#post-carousel" data-slide-to="1"></li>
-            <li data-target="#post-carousel" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="item active">
-              <a href="#"><%= image_tag("blog/2.jpg", class: 'img-responsive')%></a>
-            </div>
-            <div class="item">
-              <a href="#"><%= image_tag("blog/1.jpg", class: 'img-responsive')%></a>
-            </div>
-            <div class="item">
-              <a href="#"><%= image_tag("blog/3.jpg", class: 'img-responsive')%></a>
+  </div>
+  <div class="blog-posts">
+    <div class="row">
+      <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
+        <div class="post-thumb">
+          <%= image_tag("shutterstock_159632543.jpg", class: 'img-responsive')%>
+
+        </div>
+        <div class="entry-header">
+          <h3><a href="#">Crie seu cap</a></h3>
+        </div>
+        <div class="entry-content">
+          <p>Crie seu cap de um jeito simples e rápido. Utilize nosso template e recomende materiais de referência e pesquisa, assim os participantes poderão estudar antes.</p>
+        </div>
+      </div>
+      <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="post-thumb">
+          <div id="post-carousel"  class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="item active">
+                <%= image_tag("shutterstock_219009229.jpg", class: 'img-responsive')%>
+
+              </div>
             </div>
           </div>
-          <a class="blog-left-control" href="#post-carousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-          <a class="blog-right-control" href="#post-carousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
         </div>
+        <div class="entry-header">
+          <h3><a href="#">Escolha o local</a></h3>
+        </div>
+        <div class="entry-content">
+          <p>Uma sala de aula é o melhor local para aprender? Se for, marque lá. Mas caso não, escolha o lugar que combine melhor com a sua proposta. Um parque, um museu, um café, qualquer lugar que você ache que vá contribuir para a experiência de todos. </p>
+        </div>
+      </div>
+      <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
+        <div class="post-thumb">
+          <%= image_tag("shutterstock_233553616.jpg", class: 'img-responsive')%>
 
-      </div>
-      <div class="entry-header">
-        <h3><a href="#">Escolha o local</a></h3>
-      </div>
-      <div class="entry-content">
-        <p>Uma sala de aula é o melhor local para aprender? Se for, marque lá. Mas caso não, escolha o lugar que combine melhor com a sua proposta. Um parque, um museu, um café, qualquer lugar que você ache que vá contribuir para a experiência de todos. </p>
-      </div>
-    </div>
-    <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms">
-      <div class="post-thumb">
-        <a href="#"><%= image_tag("shutterstock_233553616.jpg", class: 'img-responsive')%></a>
-
-      </div>
-      <div class="entry-header">
-        <h3><a href="#">Dê o seu preço</a></h3>
-      </div>
-      <div class="entry-content">
-        <p>Tudo tem um preço, e nós sabemos disso. Diga qual é o seu, indique o número mínimo de participantes e diga quanto vai custar para cada um. Mas se seu preço for apenas a experiência de conhecer novas pessoas, marque o campo gratuito. </p>
+        </div>
+        <div class="entry-header">
+          <h3><a href="#">Dê o seu preço</a></h3>
+        </div>
+        <div class="entry-content">
+          <p>Tudo tem um preço, e nós sabemos disso. Diga qual é o seu, indique o número mínimo de participantes e diga quanto vai custar para cada um. Mas se seu preço for apenas a experiência de conhecer novas pessoas, marque o campo gratuito. </p>
+        </div>
       </div>
     </div>
   </div>
-</div>

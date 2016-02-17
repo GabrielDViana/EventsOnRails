@@ -10,7 +10,7 @@ banco local, possivelmente não haverá aplicação para a mesma -->
     <% @participations.each do |participation| %>
       <tr>
         <td><%= participation.user.complete_name %></td>
-        <td><%= participation.cap.title %></td>
+        <td><%= participation.cap_id %></td>
       </tr>
     <% end %>
   </tbody>

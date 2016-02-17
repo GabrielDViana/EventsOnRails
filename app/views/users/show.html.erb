@@ -3,31 +3,100 @@ banco local, possivelmente não haverá aplicação para a mesma -->
 <%= render 'layouts/header' %>
 <p id="notice"><%= notice %></p>
 <%= render 'profile_bar' %>
-<div class="container">
-  <div class="col-sm-9 content main-content">
-    <h1><%= @user.complete_name %></h1>
+<div class="container" style="padding-bottom: 1em;">
+  <div class="col-sm-10 content main-content">
+    <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Perfil</a></li>
+    <li><a data-toggle="tab" href="#menu1">Criar Caps</a></li>
+    <li><a data-toggle="tab" href="#menu2">Meus Caps</a></li>
+  </ul>
 
-    <table class="table">
-      <tr>
-        <td><b>Usuário:</b> <%= @user.nickname %></td>
-      </tr>
-      <tr>
-        <td><b>E-mail:</b> <%= @user.email %></td>
-      </tr>
-      <tr>
-        <td><b>Membro desde:</b> <%= @user.created_at.strftime(" %d/%m/%Y ") %></td>
-      </tr>
-      <tr>
-        <td><b>Aniversario:</b> <%= @user.birthday %></td>
-      </tr>
-      <tr>
-        <td><b>Experiencia:</b> <%= @user.experience %></td>
-      </tr>
-      <% if logged_in? && current_user = @user%>
-      <tr>
-        <td><b>Endereço:</b> <%= @user.address %></td>
-      </tr>
-      <% end %>
-    </table>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3><%= @user.complete_name %></h3>
+      <table class="table">
+        <tr>
+          <td><b>Usuário:</b> <%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <td><b>E-mail:</b> <%= @user.email %></td>
+        </tr>
+        <tr>
+          <td><b>Membro desde:</b> <%= @user.created_at.strftime(" %d/%m/%Y ") %></td>
+        </tr>
+        <tr>
+          <td><b>Aniversario:</b> <%= @user.birthday.strftime(" %d/%m/%Y ") %></td>
+        </tr>
+        <tr>
+          <td><b>Experiencia:</b> <%= @user.experience %></td>
+        </tr>
+        <% if logged_in? && current_user = @user%>
+        <tr>
+          <td><b>Endereço:</b> <%= @user.address %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <div class="row">
+
+        <%= form_for(@cap) do |f| %>
+
+                <%= f.text_field :title, :placeholder => "Nome do Cap",
+                  class: 'form-control' %>
+                <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all,
+                  :name, :name, {:prompt => 'Selecione a area'} %>
+                <%= f.datetime_local_field :date, class: 'form-control' %>
+                <div id="locationField">
+                    <%= f.text_field :address, :onfocus => "geolocate()",
+                        :placeholder => "Endereço do Cap", :id => 'autocomplete',
+                        class: 'form-control' %>
+                </div>
+                <%= f.text_field :city, :placeholder => "Cidade",
+                  :id => 'locality', class: 'form-control', :disabled => 'true'-%>
+                <%= f.text_field :state, :placeholder => "Estado",
+                  :id => 'administrative_area_level_1', class: 'form-control',
+                  :disabled => 'true'-%>
+                <%= f.text_field :country, :placeholder => "Estado",
+                  :id => 'country', class: 'form-control', :disabled => 'true'-%>
+
+                <%= f.submit "Criar" %>
+
+                <input id="street_number" style="display:none;"></input>
+                <input  id="route" style="display:none;"></input>
+                <input  id="locality" style="display:none;"></input>
+                <input id="administrative_area_level_1" style="display:none;"></input>
+                <input  id="postal_code" style="display:none;"></input>
+                <input id="country" style="display:none;"></input>
+
+                <script src="javascripts/application.js"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDChvz7UKPFqsIuiqkmdZVGY5Nu0OUthM&signed_in=true&libraries=places&callback=initAutocomplete"
+                    async defer></script>
+        <% end %>
+      </div>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+
+      <table class="table">
+        <thead>
+            <th>Titulo</th>
+            <th>Area</th>
+            <th>Data e Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @caps.each do |cap| %>
+            <tr>
+              <td><%= cap.title %></td>
+              <td><%= raw cap.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %></td>
+              <td><%= cap.date %></td>
+              <td><%= link_to 'Mostrar', cap %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
   </div>
 </div>

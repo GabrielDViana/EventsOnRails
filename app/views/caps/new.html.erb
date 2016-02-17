@@ -23,8 +23,8 @@
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp"
             data-wow-duration="1200ms" data-wow-delay="300ms">
-          <h2>Registrar</h2>
-          <p>Cadastre-se e faça parte da comunidade NewCap!</p>
+          <h2>Cap</h2>
+          <p>Ensine, é facil!</p>
         </div>
 
         <%= form_for(@cap) do |f| %>
@@ -50,7 +50,7 @@
                 <%= f.text_field :country, :id => 'country', class: 'form-control',
                     :disabled => 'true'-%>
 
-                <%= f.submit "Criar", class: 'btn btn-default btn-lg outline'%>
+                <%= f.submit "Criar" %>
                 <%= link_to "Voltar ", caps_path,
                 class: 'btn btn-default btn-lg outline
                     glyphicon glyphicon glyphicon-remove'%>

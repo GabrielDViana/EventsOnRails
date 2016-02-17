@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     end
 
     def show
+      @cap = Cap.new
+      @caps = @user.caps
     end
 
     def new
