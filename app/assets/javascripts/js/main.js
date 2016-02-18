@@ -33,25 +33,65 @@ jQuery(function($) {
 		return false;
 	});
 
+	$(document).ready(function () {
+	    $(document).on("scroll", onScroll);
+
+	    //smoothscroll
+	    $('a[href^="#"]').on('click', function (e) {
+	        e.preventDefault();
+	        $(document).off("scroll");
+
+	        $('a').each(function () {
+	            $(this).removeClass('active');
+	        })
+	        $(this).addClass('active');
+
+	        var target = this.hash,
+	            menu = target;
+	        $target = $(target);
+	        $('html, body').stop().animate({
+	            'scrollTop': $target.offset().top+2
+	        }, 500, 'swing', function () {
+	            window.location.hash = target;
+	            $(document).on("scroll", onScroll);
+	        });
+	    });
+	});
+
+	function onScroll(event){
+	    var scrollPos = $(document).scrollTop();
+	    $('#menu a').each(function () {
+	        var currLink = $(this);
+	        var refElement = $(currLink.attr("href"));
+	        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+	            $('#menu ul li a').removeClass("active");
+	            currLink.addClass("active");
+	        }
+	        else{
+	            currLink.removeClass("active");
+	        }
+	    });
+	}
+
 	// User define function
-	function Scroll() {
-		var contentTop      =   [];
-		var contentBottom   =   [];
-		var winTop      =   $(window).scrollTop();
-		var rangeTop    =   200;
-		var rangeBottom =   500;
-		$('.navbar-collapse').find('.scroll a').each(function(){
-			contentTop.push( $( $(this).attr('href') ).offset().top);
-			contentBottom.push( $( $(this).attr('href') ).offset().top + $( $(this).attr('href') ).height() );
-		})
-		$.each( contentTop, function(i){
-			if ( winTop > contentTop[i] - rangeTop ){
-				$('.navbar-collapse li.scroll')
-				.removeClass('active')
-				.eq(i).addClass('active');
-			}
-		})
-	};
+	// function Scroll() {
+	// 	var contentTop      =   [];
+	// 	var contentBottom   =   [];
+	// 	var winTop      =   $(window).scrollTop();
+	// 	var rangeTop    =   200;
+	// 	var rangeBottom =   500;
+	// 	$('.navbar-collapse').find('.scroll a').each(function(){
+	// 		contentTop.push( $( $(this).attr('href') ).offset().top);
+	// 		contentBottom.push( $( $(this).attr('href') ).offset().top + $( $(this).attr('href') ).height() );
+	// 	})
+	// 	$.each( contentTop, function(i){
+	// 		if ( winTop > contentTop[i] - rangeTop ){
+	// 			$('.navbar-collapse li.scroll')
+	// 			.removeClass('active')
+	// 			.eq(i).addClass('active');
+	// 		}
+	// 	})
+	// };
 
 	$('#tohash').on('click', function(){
 		$('html, body').animate({scrollTop: $(this.hash).offset().top - 5}, 1000);

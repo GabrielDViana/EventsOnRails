@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>NewCap - Ensine e Aprenda</title>
-
-  <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-  <![endif]-->
-
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" href="#">
-</head><!--/head-->
-<body>
   <div class="main-nav">
     <div class="container">
       <div class="navbar-header">
@@ -31,28 +13,25 @@
 
 
       </div>
-      <div class="collapse navbar-collapse">
+      <div id="menu"class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="scroll active"><a href="#home">Home</a></li>
-          <!--<li class="scroll"><a href="#services">A Ideia</a></li>-->
-          <li class="scroll"><a href="#participante">Participante</a></li>
-          <li class="scroll"><a href="#expositor">Expositor</a></li>
-          <li class="scroll"><a href="#about-us">Quem somos</a></li>
-          <li class="scroll"><a href="#contact">Contato</a></li>
-          <!--<li class="scroll"><a href="#blog">Blog</a></li>-->
+          <li><a class="active" href="#home">Home</a></li>
+          <!--<li><a href="#services">A Ideia</a></li>-->
+          <li><a href="#participante">Participante</a></li>
+          <li><a href="#expositor">Expositor</a></li>
+          <li><a href="#about-us">Quem somos</a></li>
+          <li><a href="#contact">Contato</a></li>
+          <!--<li><a href="#blog">Blog</a></li>-->
           <% if logged_in? %>
-              <li class="scroll"><%= link_to current_user.complete_name, current_user %></li>
-              <li class="scroll"><%= link_to "Log Out", logout_path %></li>
+              <li><%= link_to current_user.complete_name, current_user %></li>
+              <li><%= link_to "Log Out", logout_path %></li>
 
           <% else %>
-              <li class="scroll"><a href="#signupcontainer">Registrar</a></li>
-              <li class="scroll"><%= link_to 'Login', login_path %></li>
+              <li><a href="#signupcontainer">Registrar</a></li>
+              <li><%= link_to 'Login', login_path %></li>
           <% end %>
 
         </ul>
       </div>
     </div>
   </div>
-
-</body>
-</html>
