@@ -42,9 +42,9 @@ jQuery(function($) {
 	        $(document).off("scroll");
 
 	        $('a').each(function () {
-	            $(this).removeClass('active');
+	            $(this).removeClass('ativo');
 	        })
-	        $(this).addClass('active');
+	        $(this).addClass('ativo');
 
 	        var target = this.hash,
 	            menu = target;
@@ -64,11 +64,11 @@ jQuery(function($) {
 	        var currLink = $(this);
 	        var refElement = $(currLink.attr("href"));
 	        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-	            $('#menu ul li a').removeClass("active");
-	            currLink.addClass("active");
+	            $('#menu ul li a').removeClass("ativo");
+	            currLink.addClass("ativo");
 	        }
 	        else{
-	            currLink.removeClass("active");
+	            currLink.removeClass("ativo");
 	        }
 	    });
 	}

@@ -25,6 +25,7 @@ class CapsController < ApplicationController
     end
 
     def show
+      @users = @cap.users
     end
 
     def edit

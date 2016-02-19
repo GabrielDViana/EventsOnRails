@@ -6,13 +6,14 @@ banco local, possivelmente não haverá aplicação para a mesma -->
 <div class="container" style="padding-bottom: 1em;">
   <div class="col-sm-10 content main-content">
     <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Perfil</a></li>
-    <li><a data-toggle="tab" href="#menu1">Criar Caps</a></li>
-    <li><a data-toggle="tab" href="#menu2">Meus Caps</a></li>
+    <li class="active"><a data-toggle="tab" href="#perfil">Perfil</a></li>
+    <li><a data-toggle="tab" href="#createcaps">Criar Caps</a></li>
+    <li><a data-toggle="tab" href="#joined">Participaçõess</a></li>
+    <li><a data-toggle="tab" href="#caps">Meus Caps</a></li>
   </ul>
 
   <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
+    <div id="perfil" class="tab-pane fade in active">
       <h3><%= @user.complete_name %></h3>
       <table class="table">
         <tr>
@@ -37,7 +38,7 @@ banco local, possivelmente não haverá aplicação para a mesma -->
         <% end %>
       </table>
     </div>
-    <div id="menu1" class="tab-pane fade">
+    <div id="createcap" class="tab-pane fade">
       <div class="row">
 
         <%= form_for(@cap) do |f| %>
@@ -75,7 +76,29 @@ banco local, possivelmente não haverá aplicação para a mesma -->
         <% end %>
       </div>
     </div>
-    <div id="menu2" class="tab-pane fade">
+    <div id="joined" class="tab-pane fade">
+
+      <table class="table">
+        <thead>
+            <th>Titulo</th>
+            <th>Area</th>
+            <th>Data e Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @joined.each do |cap| %>
+            <tr>
+              <td><%= cap.title %></td>
+              <td><%= raw cap.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %></td>
+              <td><%= cap.date.strftime(" %d/%m/%Y %H:%M") %></td>
+              <td><%= link_to 'Mostrar', cap %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="caps" class="tab-pane fade">
 
       <table class="table">
         <thead>
@@ -89,7 +112,7 @@ banco local, possivelmente não haverá aplicação para a mesma -->
             <tr>
               <td><%= cap.title %></td>
               <td><%= raw cap.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %></td>
-              <td><%= cap.date %></td>
+              <td><%= cap.date.strftime(" %d/%m/%Y %H:%M") %></td>
               <td><%= link_to 'Mostrar', cap %></td>
             </tr>
           <% end %>

@@ -25,6 +25,22 @@
   <%= @cap.address %>
 </p>
 
+<table class="table">
+  <thead>
+      <th>Participante (Username)</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nickname %></td>
+        <td><%= user.complete_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <p>
   <strong>Distancia do cap:</strong>
   <%= @cap.distance_to([current_user.latitude, current_user.longitude]) %>

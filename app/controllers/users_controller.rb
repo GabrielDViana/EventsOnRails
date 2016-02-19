@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
     def show
       @cap = Cap.new
-      @caps = @user.caps
+      @joined = @user.caps
+      @caps = Cap.where(:user_id => params[:id])
     end
 
     def new
