@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'caps/destroy'
 
     resources :caps do
-        resources :participations
+      resources :participations
     end
     resources :password_resets
     resources :users

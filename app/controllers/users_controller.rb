@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         # Caso o usuario seja salvo com os dados validos, um email sera enviado
         if @user.save
             UserMailer.registration_confirmation(@user).deliver_now
-            flash[:success] = "Please confirm your email address to continue"
+            flash[:error] = "Please confirm your email address to continue"
             redirect_to root_url
         else
             flash[:error] = "Try again. Something went wrong!"
@@ -32,7 +32,8 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
-            redirect_to @user, notice: 'User was successfully updated.'
+            redirect_to @user
+            flash[:success] = 'User was successfully updated.'
         else
             render :edit
         end
@@ -40,7 +41,8 @@ class UsersController < ApplicationController
 # Metodo destroy exclui o usuário
     def destroy
         @user.destroy
-        redirect_to users_url, notice: 'User was successfully destroyed.'
+        redirect_to users_url
+        flash[:success] = 'User was successfully destroyed.'
     end
 # Método que irá verificar se o usuário confirmou o email de registro
     def confirm_email

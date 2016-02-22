@@ -1,30 +1,20 @@
 <%= render 'layouts/inner_header' %>
 
-<h1>Reset Password</h1>
+<div id="signup">
+  <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp"
+      data-wow-duration="1200ms" data-wow-delay="300ms">
+    <h2>Redefinição Senha </h2>
+    <p>Insira sua nova senha</p>
+  </div>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
-    <div class="row ">
-        <div class="field col-md-2 col-md-offset-3">
-            <%= f.label :password, "Password:", class: 'white-font' %>
-        </div>
-        <div class="field col-md-2">
-            <%= f.password_field :password, class: 'form-control' %>
-        </div>
-    </div>
-    <div class="row ">
-        <div class="field col-md-2 col-md-offset-3">
-            <%= f.label :password_confirmation, "Password Confirmation:",
-            class: 'white-font' %>
-        </div>
-        <div class="field col-md-2">
-            <%= f.password_field :password_confirmation,
-            class: 'form-control' %>
-        </div>
-    </div>
-
-    <div class="actions" >
-        <%= f.submit "Submit new password ", class: 'btn btn-default btn-lg outline'%>
-    </div>
-<% end %>
+  <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+    <%= f.label :password, "Password:", class: 'white-font' %>
+    <%= f.password_field :password, class: 'form-control' %>
+    <%= f.label :password_confirmation, "Password Confirmation:" %>
+    <%= f.password_field :password_confirmation,
+    class: 'form-control' %>
+    <%= f.submit "Submit new password "%>
+  <% end %>
+</div>

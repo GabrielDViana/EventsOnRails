@@ -1,11 +1,9 @@
-<!-- Esta pagina tem como fim apenas mostrar os usuarios que foram salvos no
-banco local, possivelmente não haverá aplicação para a mesma -->
 <%= render 'layouts/inner_header' %>
 <p id="notice"><%= notice %></p>
 
-<h1>Users that have signed up</h1>
+<h1>Usuarios</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nickname</th>
@@ -22,12 +20,8 @@ banco local, possivelmente não haverá aplicação para a mesma -->
         <td><%= user.complete_name %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Remove', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'Sign up', new_user_path %>

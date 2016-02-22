@@ -12,7 +12,8 @@ class ParticipationsController < ApplicationController
     current_user.update_attributes(participation_params[:user_attributes])
     @participation.cap = Cap.find(params[:cap_id])
     if @participation.save
-      redirect_to caps_path, notice: "Voce foi registrado no Cap!"
+      redirect_to caps_path
+      flash[:success] = "Voce foi registrado no Cap!"
     else
       render action: 'new'
     end

@@ -1,9 +1,51 @@
-<%= form_for @participation, url: {action: "create"} do |f| %>
-  <%= f.fields_for :user, current_user do |builder| %>
-    <fieldset style="display:none;">
-      <%= builder.label :complete_name, "First Name" %><br />
-      <%= builder.text_field :complete_name %><br />
-    </fieldset>
+<%= render 'layouts/inner_header' %>
+<%= render 'form' %>
+  <%= form_for @participation, url: {action: "create"} do |f| %>
+    <%= f.fields_for :user, current_user do |builder| %>
+      <fieldset style="display:none;">
+        <%= builder.label :complete_name, "First Name" %><br />
+        <%= builder.text_field :complete_name %><br />
+      </fieldset>
+    <% end %>
+    <section id="pricing">
+      <div class="container">
+        <div class="row">
+          <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+            <h2>Pagamento</h2>
+            <p>Selecione abaixo a categoria de participação que deseja</p>
+          </div>
+        </div>
+        <div class="pricing-table">
+          <div class="row">
+            <div class="col-sm-6 quad">
+              <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <h3>Basico</h3>
+                <div class="price">
+                  R$xx,00<span>/Month</span>
+                </div>
+                <ul>
+                  <li>Sem lugar reservado</li>
+                  <li>Sem adicionais</li>
+                </ul>
+                <%= f.submit "Participar"%>
+              </div>
+            </div>
+            <div class="col-sm-6 quad">
+              <div class="single-table wow flipInY" data-wow-duration="1000ms" data-wow-delay="1100ms">
+                <h3>Avançado</h3>
+                <div class="price">
+                  R$xx,00
+                </div>
+                <ul>
+                  <li>Lugar reservado</li>
+                  <li>Adicionais</li>
+
+                </ul>
+                <%= f.submit "Participar" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   <% end %>
-  <%= f.submit "Participar", class: 'btn btn-default btn-lg outline' %>
-<% end %>

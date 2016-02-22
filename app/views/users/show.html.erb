@@ -24,7 +24,8 @@
           <td><b>Membro desde:</b> <%= @user.created_at.strftime(" %d/%m/%Y ") %></td>
         </tr>
         <tr>
-          <td><b>Aniversario:</b> <%= @user.birthday.strftime(" %d/%m/%Y ") %></td>
+
+          <td><b>Aniversario:</b> <%= @user.birthday.strftime(" %d/%m/%Y ") rescue "Não informado"%></td>
         </tr>
         <tr>
           <td><b>Experiencia:</b> <%= @user.experience %></td>

@@ -20,10 +20,10 @@
   <tbody>
     <% @caps.each do |cap| %>
       <tr>
-        <td><%= cap.user.complete_name %></td>
+        <td><%= cap.user.nickname %></td>
         <td><%= cap.title %></td>
         <td><%= cap.area %></td>
-        <td><%= cap.date %></td>
+        <td><%= cap.date.strftime(" %d/%m/%Y %H:%M") %></td>
         <td><%= link_to 'Show', cap %></td>
         <% if logged_in? && current_user = cap.user%>
             <td><%= link_to 'Remove', cap_path(cap), method: :delete,
