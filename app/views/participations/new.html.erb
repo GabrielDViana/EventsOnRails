@@ -1,6 +1,6 @@
 <%= form_for @participation, url: {action: "create"} do |f| %>
   <%= f.fields_for :user, current_user do |builder| %>
-    <fieldset>
+    <fieldset style="display:none;">
       <%= builder.label :complete_name, "First Name" %><br />
       <%= builder.text_field :complete_name %><br />
     </fieldset>

@@ -1,4 +1,4 @@
-<%= render 'layouts/header' %>
+<%= render 'layouts/inner_header' %>
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Usuario:</strong>
@@ -24,8 +24,10 @@
   <strong>Local do cap:</strong>
   <%= @cap.address %>
 </p>
+ <td><%= link_to 'Participar', new_cap_participation_path(@cap) %></td>
 
 <table class="table">
+  <h1>Participantes</h1>
   <thead>
       <th>Participante (Username)</th>
       <th>Nome</th>

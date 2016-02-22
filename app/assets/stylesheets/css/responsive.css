@@ -1,6 +1,8 @@
 /* lg */
 @media (min-width: 1200px) {
-
+  .main-content {
+    min-height: 400px;
+  }
 }
 
 /* md */
@@ -217,7 +219,7 @@
 
 /* XS Portrait */
 @media (max-width: 479px) {
-  
+
 	.team-members .col-sm-3,
 	.pricing-table .col-sm-3,
 	#portfolio .col-sm-3,

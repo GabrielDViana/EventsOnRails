@@ -1,7 +1,4 @@
 class ParticipationsController < ApplicationController
-  def index
-    @participations = Participation.all
-  end
 
   def new
     @participation = Participation.new

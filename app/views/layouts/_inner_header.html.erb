@@ -1,0 +1,28 @@
+<div class="main-nav">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="footer-logo">
+        <a><h1><%= link_to "NewCap", root_path, :class => "white-font" %></h1></a>
+      </div>
+
+    </div>
+    <div id="menu"class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Caps", caps_path %></li>
+        <% if logged_in? %>
+            <li><%= link_to current_user.complete_name, current_user %></li>
+            <li><%= link_to "Log Out", logout_path %></li>
+
+        <% else %>
+            <li><%= link_to 'Registrar', new_user_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

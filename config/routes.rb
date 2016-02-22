@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     get 'caps/edit'
     get 'caps/destroy'
 
-    resources :caps
+    resources :caps do
+        resources :participations
+    end
     resources :password_resets
     resources :users
 

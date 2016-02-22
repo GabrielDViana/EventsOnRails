@@ -1,12 +1,12 @@
 <!-- <p id="notice"><%= notice %></p> -->
-
+<%= render 'layouts/inner_header' %>
 <h1>Caps</h1>
 
-<% tag_cloud ActsAsTaggableOn::Tag.all, %w[] do |tag, css_class| %>
+<% tag_cloud ActsAsTaggableOn::Tag.all, %w[btn] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
 <% end %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Dono</th>

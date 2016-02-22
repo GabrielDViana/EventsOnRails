@@ -1,54 +1,40 @@
-<h1 class='white-font'>Editar Perfil</h1>
-
+<%= render 'layouts/inner_header' %>
 <%= render 'form' %>
 <%= render 'profile_bar' %>
+<div id="signup"class="container" style="padding-bottom: 1em;padding-top: 1em;">
+  <div class="col-sm-10 content main-content">
+      <%= form_for(@user) do |f| %>
 
-<%= form_for(@user) do |f| %>
-    <%= f.label :complete_name, "Complete name:", class: 'white-font' %>
-    <%= f.text_field :complete_name, class: 'form-control' %>
-    <%= f.label :email, "E-mail:", class: 'white-font' %>
-    <%= f.text_field :email, class: 'form-control' %>
-    <%= f.label :birthday, "Birthday:", class: 'white-font' %>
-    <%= f.date_field :birthday, class: 'form-control' %>
-    <%= f.label :password, "Password:", class: 'white-font' %>
-    <%= f.password_field :password, class: 'form-control' %>
-    <%= f.label :email, "Experience:", class: 'white-font' %>
-    <%= f.text_area :experience, class: 'form-control', rows: 8%>
-    <%= f.label :password_confirmation, "Password Confirmation:",
-        class: 'white-font' %>
-    <%= f.password_field :password_confirmation,
-        class: 'form-control' %>
-    <div>
-        <%= f.label :profile_image, "Foto de Perfil" %>
-    </div>
-    <div>
-        <span class="btn btn-default btn-file">
-            Browse Files<%= f.file_field :profile_image, class: 'form-control' %>
+        <%= f.text_field :complete_name, :placeholder => "Nome Completo",
+          class: 'form-control' %>
+        <%= f.text_field :email, :placeholder => "Email",
+          class: 'form-control' %>
+        <span style="display: block;text-align: center;font-size: 18px;">
+            Data de nascimento:
         </span>
-    </div>
-    <%= f.label :address, "Endereço:", class: 'white-font' %>
-    <div id="locationField">
-        <%= f.text_field :address, :onfocus => "geolocate()",
-            :placeholder => "Seu endereço", :id => 'autocomplete',
-            class: 'form-control' %>
-    </div>
+        <%= f.date_field :birthday,  class: 'form-control' %>
+        <%= f.password_field :password, :placeholder => "Senha" %>
+        <%= f.password_field :password_confirmation,
+            :placeholder => "Confirmação de senha" %>
+        <div id="locationField">
+            <%= f.text_field :address, :onfocus => "geolocate()",
+                :placeholder => "Endereço do Cap", :id => 'autocomplete',
+                class: 'form-control' %>
+        </div>
+        <%= f.text_field :city, :placeholder => "Cidade",
+          :id => 'locality', class: 'form-control', :disabled => 'true'-%>
+        <%= f.text_field :state, :placeholder => "Estado",
+          :id => 'administrative_area_level_1', class: 'form-control',
+          :disabled => 'true'-%>
+        <%= f.text_field :country, :placeholder => "Estado",
+          :id => 'country', class: 'form-control', :disabled => 'true'-%>
 
-    <%= f.label :city, "Cidade:", class: 'white-font' %>
-    <%= f.text_field :city, :id => 'locality', class: 'form-control',
-        :disabled => 'true'-%>
-    <%= f.label :state, "Estado:", class: 'white-font' %>
-    <%= f.text_field :state, :id => 'administrative_area_level_1',
-        class: 'form-control', :disabled => 'true'-%>
-    <%= f.label :country, "País:", class: 'white-font' %>
-    <%= f.text_field :country, :id => 'country', class: 'form-control',
-        :disabled => 'true'-%>
+        <span>
+            Escolha uma imagem para o seu perfil
+        </span>
+        <%= f.file_field :profile_image, class: 'form-control' %>
 
-    <div class="actions" >
-        <%= f.submit "Update Profile", class: 'btn btn-default btn-lg outline'%>
-        <%= link_to "Back ", users_path,
-        class: 'btn btn-default btn-lg outline
-            glyphicon glyphicon glyphicon-remove'%>
-    </div>
+        <%= f.submit "Salvar" %>
 
         <input id="street_number" style="display:none;"></input>
         <input  id="route" style="display:none;"></input>
@@ -60,5 +46,6 @@
         <script src="javascripts/application.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDChvz7UKPFqsIuiqkmdZVGY5Nu0OUthM&signed_in=true&libraries=places&callback=initAutocomplete"
             async defer></script>
-
-<% end %>
+      <% end %>
+  </div>
+</div>

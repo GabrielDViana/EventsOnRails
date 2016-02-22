@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>NewCap - Registrar</title>
-  <%= render 'layouts/header' %>
+  <%= render 'layouts/inner_header' %>
   <%= render 'users/form' %> <!--Renderiza a pagina form.html.erb-->
   <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -19,7 +19,6 @@
 </head><!--/head-->
 <body>
   <section id="signup">
-    <div class="container">
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp"
             data-wow-duration="1200ms" data-wow-delay="300ms">
@@ -43,7 +42,6 @@
             </div>
 		<% end %>
       </div>
-    </div>
   </section><!--/#signup-->
 </body>
 </html>
