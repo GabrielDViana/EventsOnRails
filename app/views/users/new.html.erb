@@ -35,9 +35,8 @@
                 <%= f.password_field :password, :placeholder => "Senha" %>
                 <%= f.password_field :password_confirmation,
                     :placeholder => "Confirmação de senha" %>
-                <%= f.check_box :terms, :class => 'checboxCustom' %>
-                <%= f.label :terms, "Eu aceito os termos de serviço",
-                    :class => 'checboxCustom' %>
+                <%= f.check_box :terms %>
+                <%= f.label :terms, "Eu aceito os termos de serviço" %>
 			          <%= f.submit "Entrar"%>
             </div>
 		<% end %>

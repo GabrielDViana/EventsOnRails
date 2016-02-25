@@ -7,8 +7,9 @@
 
         <%= f.text_field :complete_name, :placeholder => "Nome Completo",
           class: 'form-control' %>
-        <%= f.text_field :email, :placeholder => "Email",
-          class: 'form-control' %>
+
+        <%= f.text_area :experience, :placeholder => "Experiencia",
+          class: 'form-control', rows: 8%>
         <span style="display: block;text-align: center;font-size: 18px;">
             Data de nascimento:
         </span>
@@ -18,7 +19,7 @@
             :placeholder => "Confirmação de senha" %>
         <div id="locationField">
             <%= f.text_field :address, :onfocus => "geolocate()",
-                :placeholder => "Endereço do Cap", :id => 'autocomplete',
+                :placeholder => "Seu Endereço", :id => 'autocomplete',
                 class: 'form-control' %>
         </div>
         <%= f.text_field :city, :placeholder => "Cidade",

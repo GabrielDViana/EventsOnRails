@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
     validates_date  :birthday,
                     :on => :update,
                     on_or_after: lambda { 125.years.ago },
-                    on_or_before: lambda { 16.years.ago }
+                    on_or_before: lambda { 18.years.ago }
 
     validates   :experience,
                 :on => :update,

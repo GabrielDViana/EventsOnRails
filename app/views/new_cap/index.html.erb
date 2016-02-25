@@ -45,14 +45,11 @@
   </section>
 
 
-
+<% if !logged_in? %>
   <section id="signupcontainer">
     <div id="signup"class="container">
       <div class="line">
-      <% if logged_in? %>
-          <li class="scroll"><%= link_to current_user.complete_name, current_user %></li>
-          <li class="scroll"><%= link_to "Log Out", logout_path %></li>
-      <% else %>
+
        <div class="col-md-6 quad">
          <div class="row">
            <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp"
@@ -63,19 +60,18 @@
 
            <%= form_for(@user) do |f| %>
                <div class="buttonHolder">
-                   <%= f.text_field :nickname, :placeholder => "Username" %>
+                   <%= f.text_field :nickname, :placeholder => "Nome de Usuario" %>
                    <%= f.text_field :complete_name, :placeholder =>
                        "Nome Completo" %>
                    <%= f.text_field :email, :placeholder => "E-mail" %>
                    <%= f.password_field :password, :placeholder => "Senha" %>
                    <%= f.password_field :password_confirmation,
                        :placeholder => "Confirmação de senha" %>
-                   <%= f.check_box :terms, :class => 'checboxCustom' %>
-                   <%= f.label :terms, "Eu aceito os termos de serviço",
-                       :class => 'checboxCustom' %>
+                   <%= f.check_box :terms %>
+                   <%= f.label :terms, "Eu aceito os termos de serviço" %>
                    <%= f.submit "Entrar"%>
                </div>
-           <% end %>
+            <% end %>
          </div>
         </div>
         <div class="col-md-6 quad">
@@ -90,21 +86,20 @@
                 <div class="buttonHolder">
                     <%= text_field_tag :email, nil, placeholder: 'E-mail'  %>
                     <%= password_field_tag :password, nil, placeholder: 'Senha' %>
-                    <%= check_box_tag :remember_me, 1, params[:remember_me],
-                        class: 'checboxCustom' %>
-                    <%= label_tag :remember_me, nil, class: 'checboxCustom'%>
-                    <%= link_to "Esqueci minha senha", password_resets_path %>
                     <%= submit_tag "Login"%>
+                    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+                    <%= label_tag :remember_me, nil %>
+                    <%= link_to "Esqueci minha senha", password_resets_path %>
                 </div>
 
           </div>
           <% end %>
         </div>
-      <% end %>
+
       </div>
     </div>
   </section>
-
+<% end %>
   <section id="contact">
     <!-- <div id="google-map" class="wow fadeIn" data-latitude="-15.7942287" data-longitude="-47.8821658" data-wow-duration="1000ms" data-wow-delay="400ms"></div> -->
     <div id="contact-us" class="parallax">

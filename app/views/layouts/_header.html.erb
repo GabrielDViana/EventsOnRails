@@ -24,10 +24,16 @@
               <li><%= link_to "Log Out", logout_path %></li>
 
           <% else %>
-              <li><a href="#signupcontainer">Registrar/Login</a></li>
+              <li><a href="#signupcontainer">Entrar</a></li>
               <li><a href="#contact">Contato</a></li>
           <% end %>
         </ul>
       </div>
     </div>
   </div>
+
+  <% flash.each do |key, value| %>
+      <%= content_tag(:div, class: "alert alert-#{key}") do %>
+          <p><%= value %></p>
+      <% end %>
+  <% end %>
