@@ -8,6 +8,8 @@ class CapsController < ApplicationController
         else
             @caps = Cap.all
         end
+        @caps_by_date = @caps.group_by(&:date)
+        @date = params[:date] ? Date.parse(params[:date]) : Date.today
     end
 
     def new

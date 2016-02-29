@@ -51,7 +51,6 @@ class User < ActiveRecord::Base
         content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
     validates_date  :birthday,
-                    :on => :update,
                     on_or_after: lambda { 125.years.ago },
                     on_or_before: lambda { 18.years.ago }
 

@@ -2,9 +2,27 @@
 <%= render 'layouts/inner_header' %>
 <h1>Caps</h1>
 
-<% tag_cloud ActsAsTaggableOn::Tag.all, %w[btn] do |tag, css_class| %>
+<% tag_cloud ActsAsTaggableOn::Tag.all.order(:name), %w[btn] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
 <% end %>
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+
+    <%= date.day %>
+    <% if @caps_by_date[date] %>
+      <ul>
+        <% @caps_by_date[date].each do |cap| %>
+        <%= link_to cap.title, cap %>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
 
 <table class="table">
   <thead>

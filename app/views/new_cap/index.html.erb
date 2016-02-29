@@ -49,7 +49,6 @@
   <section id="signupcontainer">
     <div id="signup"class="container">
       <div class="line">
-
        <div class="col-md-6 quad">
          <div class="row">
            <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp"
@@ -64,6 +63,10 @@
                    <%= f.text_field :complete_name, :placeholder =>
                        "Nome Completo" %>
                    <%= f.text_field :email, :placeholder => "E-mail" %>
+                   <span style="display: block;text-align: center;font-size: 18px;">
+                       Data de nascimento:
+                   </span>
+                   <%= f.date_field :birthday,  class: 'form-control' %>
                    <%= f.password_field :password, :placeholder => "Senha" %>
                    <%= f.password_field :password_confirmation,
                        :placeholder => "Confirmação de senha" %>

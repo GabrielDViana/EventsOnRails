@@ -28,9 +28,9 @@
                 <%= f.label :title, "Titulo:", class: 'white-font' %>
                 <%= f.text_field :title, class: 'form-control' %>
                 <%= f.label :tag_list, "Área:", class: 'white-font' %>
-                <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
+                <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all.order(:name), :name, :name %>
                 <%= f.label :date, "Data e Horário:", class: 'white-font' %>
-                <%= f.datetime_local_field :date, class: 'form-control' %>
+                <%= f.date_field :date, class: 'form-control' %>
                 <div id="locationField">
                     <%= f.text_field :address, :onfocus => "geolocate()",
                         :placeholder => "Seu endereço", :id => 'autocomplete',

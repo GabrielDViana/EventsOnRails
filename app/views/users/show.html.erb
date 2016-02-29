@@ -44,9 +44,9 @@
 
                 <%= f.text_field :title, :placeholder => "Nome do Cap",
                   class: 'form-control' %>
-                <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all,
+                <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all.order(:name),
                   :name, :name, {:prompt => 'Selecione a area'} %>
-                <%= f.datetime_local_field :date, class: 'form-control' %>
+                <%= f.date_field :date, class: 'form-control' %>
                 <div id="locationField">
                     <%= f.text_field :address, :onfocus => "geolocate()",
                         :placeholder => "Endereço do Cap", :id => 'autocomplete',

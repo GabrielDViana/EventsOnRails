@@ -1,52 +1,85 @@
 <%= render 'layouts/inner_header' %>
 <%= render 'form' %>
 <%= render 'profile_bar' %>
-<div id="signup"class="container" style="padding-bottom: 1em;padding-top: 1em;">
+
+<div class="container" style="padding-bottom: 1em;padding-top: 1em;">
   <div class="col-sm-10 content main-content">
-      <%= form_for(@user) do |f| %>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#perfil">Informações principais</a></li>
+      <li><a data-toggle="tab" href="#password">Alterar senha</a></li>
+    </ul>
 
-        <%= f.text_field :complete_name, :placeholder => "Nome Completo",
-          class: 'form-control' %>
-
-        <%= f.text_area :experience, :placeholder => "Experiencia",
-          class: 'form-control', rows: 8%>
-        <span style="display: block;text-align: center;font-size: 18px;">
-            Data de nascimento:
-        </span>
-        <%= f.date_field :birthday,  class: 'form-control' %>
-        <%= f.password_field :password, :placeholder => "Senha" %>
-        <%= f.password_field :password_confirmation,
-            :placeholder => "Confirmação de senha" %>
-        <div id="locationField">
-            <%= f.text_field :address, :onfocus => "geolocate()",
-                :placeholder => "Seu Endereço", :id => 'autocomplete',
-                class: 'form-control' %>
+    <div id="signup" class="tab-content">
+      <div id="perfil" class="tab-pane fade in active">
+        <%= form_for(@user) do |f| %>
+        <div class="line">
+         <div class="col-md-6 quad">
+          <div class="row">
+            <span style="display: block;text-align: center;font-size: 18px;">
+                Nome Completo:
+            </span>
+            <%= f.text_field :complete_name, :placeholder => "Nome Completo",
+              class: 'form-control' %>
+            <span style="display: block;text-align: center;font-size: 18px;">
+                Experiência:
+            </span>
+            <%= f.text_area :experience, :placeholder => "Máximo 300 caractéres",
+              class: 'form-control', rows: 8%>
+            <span style="display: block;text-align: center;font-size: 18px;">
+                Data de nascimento:
+            </span>
+            <%= f.date_field :birthday,  class: 'form-control' %>
+          </div>
         </div>
-        <%= f.text_field :city, :placeholder => "Cidade",
-          :id => 'locality', class: 'form-control', :disabled => 'true'-%>
-        <%= f.text_field :state, :placeholder => "Estado",
-          :id => 'administrative_area_level_1', class: 'form-control',
-          :disabled => 'true'-%>
-        <%= f.text_field :country, :placeholder => "Estado",
-          :id => 'country', class: 'form-control', :disabled => 'true'-%>
+        <div class="col-md-6 quad">
+          <div class="row">
+              <span style="display: block;text-align: center;font-size: 18px;">
+                  Seu endereço:
+              </span>
+              <div id="locationField">
+                  <%= f.text_field :address, :onfocus => "geolocate()",
+                      :placeholder => "Seu Endereço", :id => 'autocomplete',
+                      class: 'form-control' %>
+              </div>
+              <%= f.text_field :city, :placeholder => "Cidade",
+                :id => 'locality', class: 'form-control', :disabled => 'true'-%>
+              <%= f.text_field :state, :placeholder => "Estado",
+                :id => 'administrative_area_level_1', class: 'form-control',
+                :disabled => 'true'-%>
+              <%= f.text_field :country, :placeholder => "Estado",
+                :id => 'country', class: 'form-control', :disabled => 'true'-%>
 
-        <span>
-            Escolha uma imagem para o seu perfil
-        </span>
-        <%= f.file_field :profile_image, class: 'form-control' %>
+              <span>
+                  Escolha uma imagem para o seu perfil
+              </span>
+              <%= f.file_field :profile_image, class: 'form-control' %>
 
-        <%= f.submit "Salvar" %>
+              <%= f.submit "Salvar" %>
 
-        <input id="street_number" style="display:none;"></input>
-        <input  id="route" style="display:none;"></input>
-        <input  id="locality" style="display:none;"></input>
-        <input id="administrative_area_level_1" style="display:none;"></input>
-        <input  id="postal_code" style="display:none;"></input>
-        <input id="country" style="display:none;"></input>
+              <input id="street_number" style="display:none;"></input>
+              <input  id="route" style="display:none;"></input>
+              <input  id="locality" style="display:none;"></input>
+              <input id="administrative_area_level_1" style="display:none;"></input>
+              <input  id="postal_code" style="display:none;"></input>
+              <input id="country" style="display:none;"></input>
 
-        <script src="javascripts/application.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDChvz7UKPFqsIuiqkmdZVGY5Nu0OUthM&signed_in=true&libraries=places&callback=initAutocomplete"
-            async defer></script>
-      <% end %>
+              <script src="javascripts/application.js"></script>
+              <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDChvz7UKPFqsIuiqkmdZVGY5Nu0OUthM&signed_in=true&libraries=places&callback=initAutocomplete"
+                  async defer></script>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="password" class="tab-pane fade">
+        <%= form_for(@user) do |f| %>
+          <%= f.password_field :password, :placeholder => "Senha" %>
+          <%= f.password_field :password_confirmation,
+              :placeholder => "Confirmação de senha" %>
+          <%= f.submit "Salvar" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
