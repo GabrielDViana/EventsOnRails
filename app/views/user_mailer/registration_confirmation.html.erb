@@ -4,10 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-      <p>Hi <%= @user.complete_name %>,</p>
+      <p>Olá <%= @user.complete_name %>,</p>
       <p>
-          Thanks for registering in New Cap!
-          Please, confirm your registration click the URL below.
+          Obrigado por se cadastrar na newcap!
+          Por favor, confirme a ativação da sua conta clicando no link abaixo.
       </p>
       <p><%= confirm_email_user_url(@user.confirm_token) %></p>
 

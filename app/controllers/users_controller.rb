@@ -21,10 +21,10 @@ class UsersController < ApplicationController
         # Caso o usuario seja salvo com os dados validos, um email sera enviado
         if @user.save
             UserMailer.registration_confirmation(@user).deliver_now
-            flash[:error] = "Please confirm your email address to continue"
+            flash[:error] = "Por favor confirme seu cadastro no email que enviamos"
             redirect_to root_url
         else
-            flash[:error] = "Try again. Something went wrong!"
+            flash[:error] = "Tente novamente! Ocorreu alguma falha no cadastro."
             render 'new'
         end
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         if @user.update(user_params)
             redirect_to @user
-            flash[:success] = 'User was successfully updated.'
+            flash[:success] = 'Perfil atualizado'
         else
             render :edit
         end
@@ -42,18 +42,18 @@ class UsersController < ApplicationController
     def destroy
         @user.destroy
         redirect_to users_url
-        flash[:success] = 'User was successfully destroyed.'
+        flash[:success] = 'Conta removida com sucesso.'
     end
 # Método que irá verificar se o usuário confirmou o email de registro
     def confirm_email
         user = User.find_by_confirm_token(params[:id])
         if user
             user.email_activate
-            flash[:success] = "Welcome to New Cap! Your email has been confirmed.
-            Please, sign in to continue."
+            flash[:success] = "Bem vindo a newcap! Sua conta foi confirmada com
+            sucesso!"
             redirect_to login_url
         else
-            flash[:error] = "Sorry. User does not exist"
+            flash[:error] = "Desculpe, o usuário não existe"
             redirect_to root_url
         end
     end

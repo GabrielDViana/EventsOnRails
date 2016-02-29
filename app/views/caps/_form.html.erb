@@ -1,8 +1,8 @@
 <%= form_for(@cap) do |f| %>
     <% if @cap.errors.any? %>
         <div style="color:red;" id="error_explanation">
-            <h2>Can't sign up,
-                <%= pluralize(@cap.errors.count, "error", "errors") %> found
+            <h2>Não foi possível criar o Cap,
+                <%= pluralize(@cap.errors.count, "erro", "erros") %> encontrados
             </h2>
 
             <ul>

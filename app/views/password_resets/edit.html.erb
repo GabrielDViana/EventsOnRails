@@ -10,11 +10,9 @@
   <%= render 'form' %>
 
   <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
-    <%= f.label :password, "Password:", class: 'white-font' %>
-    <%= f.password_field :password, class: 'form-control' %>
-    <%= f.label :password_confirmation, "Password Confirmation:" %>
+    <%= f.password_field :password, :placeholder => "Senha" %>
     <%= f.password_field :password_confirmation,
-    class: 'form-control' %>
-    <%= f.submit "Submit new password "%>
+        :placeholder => "Confirmação de senha" %>
+    <%= f.submit "Salvar nova senha"%>
   <% end %>
 </div>

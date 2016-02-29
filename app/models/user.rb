@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
                 }
 
     validates   :complete_name,
+                :format => { with: /^[a-zA-Z]+$/ }
                 presence: true,
                 length:{
                     minimum: 3,

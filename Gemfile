@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use rails-i18n to internationalize the application
+gem 'rails-i18n', '~> 4.0.0'
 # Use acts-as-taggable-on to set tags on objects
 gem 'acts-as-taggable-on'
 # Use geocoder to add location to an object

@@ -14,21 +14,21 @@ class SessionsController < ApplicationController
                     cookies[:auth_token] = user.auth_token
                 end
                 redirect_to root_url
-                flash[:success] = 'Logged in!'
+                flash[:success] = 'Logado com sucesso!'
             else
-                flash.now[:error] = 'Please activate your account by following the
-                instructions in the account confirmation email you received to proceed'
+                flash.now[:error] = 'Por favor ative sua conta seguindo as
+                instruções enviadas no seu email para continuar'
                 render 'new'
             end
         else
             redirect_to login_url
-            flash[:error] ="Invalid info"
+            flash[:error] ="Usuário inexistente ou senha incorreta"
         end
     end
 
     def destroy
         cookies.delete(:auth_token)
         redirect_to root_url
-        flash[:success] = "Succefully loggedd out"
+        flash[:success] = "Saida efetuada com sucesso"
     end
 end

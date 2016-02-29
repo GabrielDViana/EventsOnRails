@@ -1,7 +1,0 @@
-<!-- Esse é o email que a pessoa receberá para a confirmação -->
-Hi <%= @user.name %>,
-
-Thanks for registering in New Cap!
-Please, confirm your registration click the URL below.
-
-<%= confirm_email_user_url(@user.confirm_token) %>
