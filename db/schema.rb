@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229180929) do
+ActiveRecord::Schema.define(version: 20160301202040) do
 
   create_table "caps", force: :cascade do |t|
     t.string   "title"
     t.string   "area"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
     t.date     "date"
     t.string   "address"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20160229180929) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
+    t.string   "cap_image_file_name"
+    t.string   "cap_image_content_type"
+    t.integer  "cap_image_file_size"
+    t.datetime "cap_image_updated_at"
   end
 
   create_table "participations", force: :cascade do |t|

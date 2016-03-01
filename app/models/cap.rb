@@ -16,4 +16,8 @@ class Cap < ActiveRecord::Base
     validates_date  :date,
                     :after => :today
 
+    has_attached_file   :cap_image
+    validates_attachment    :cap_image,
+        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
 end

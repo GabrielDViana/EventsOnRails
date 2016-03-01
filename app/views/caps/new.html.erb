@@ -45,7 +45,10 @@
                 <%= f.label :country, "País:", class: 'white-font' %>
                 <%= f.text_field :country, :id => 'country', class: 'form-control',
                     :disabled => 'true'-%>
-
+                <span>
+                    Escolha uma imagem para o seu cap
+                </span>
+                <%= f.file_field :profile_image, class: 'form-control' %>
                 <%= f.submit "Criar" %>
                 <%= link_to "Voltar ", caps_path,
                 class: 'btn btn-default btn-lg outline

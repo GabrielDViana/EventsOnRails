@@ -41,12 +41,19 @@
       <div class="row" style="padding-top: 1em;">
 
         <%= form_for(@cap) do |f| %>
-
+        <div class="line">
+          <div class="col-md-6 quad">
+            <div class="row">
                 <%= f.text_field :title, :placeholder => "Nome do Cap",
                   class: 'form-control' %>
                 <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all.order(:name),
                   :name, :name, {:prompt => 'Selecione a area'} %>
                 <%= f.date_field :date, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="col-md-6 quad">
+            <div class="row">
                 <div id="locationField">
                     <%= f.text_field :address, :onfocus => "geolocate()",
                         :placeholder => "Endereço do Cap", :id => 'autocomplete',
@@ -57,8 +64,13 @@
                 <%= f.text_field :state, :placeholder => "Estado",
                   :id => 'administrative_area_level_1', class: 'form-control',
                   :disabled => 'true'-%>
-                <%= f.text_field :country, :placeholder => "Estado",
-                  :id => 'country', class: 'form-control', :disabled => 'true'-%>
+                  <span>
+                      Escolha uma imagem para o seu cap
+                  </span>
+                  <%= f.file_field :profile_image, class: 'form-control' %>
+
+                <!-- <%= f.text_field :country, :placeholder => "País",
+                  :id => 'country', class: 'form-control', :disabled => 'true'-%> -->
 
                 <%= f.submit "Criar" %>
 
@@ -72,6 +84,9 @@
                 <script src="javascripts/application.js"></script>
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDChvz7UKPFqsIuiqkmdZVGY5Nu0OUthM&signed_in=true&libraries=places&callback=initAutocomplete"
                     async defer></script>
+            </div>
+          </div>
+        </div>
         <% end %>
       </div>
     </div>
