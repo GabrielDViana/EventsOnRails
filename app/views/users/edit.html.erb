@@ -29,6 +29,10 @@
                 Data de nascimento:
             </span>
             <%= f.date_field :birthday,  class: 'form-control' %>
+            <span>
+                Envie o seu curriculo para que outros usuários saibam mais sobre você
+            </span>
+            <%= f.file_field :curriculum, class: 'form-control' %>
           </div>
         </div>
         <div class="col-md-6 quad">

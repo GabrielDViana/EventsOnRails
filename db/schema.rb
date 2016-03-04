@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301202040) do
+ActiveRecord::Schema.define(version: 20160304132959) do
 
   create_table "caps", force: :cascade do |t|
     t.string   "title"
@@ -84,6 +84,10 @@ ActiveRecord::Schema.define(version: 20160301202040) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
+    t.string   "curriculum_file_name"
+    t.string   "curriculum_content_type"
+    t.integer  "curriculum_file_size"
+    t.datetime "curriculum_updated_at"
   end
 
 end

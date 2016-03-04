@@ -2,7 +2,7 @@
 class User < ActiveRecord::Base
     attr_accessible :nickname, :complete_name, :email, :password, :terms,
         :profile_image, :birthday, :experience, :address, :latitude, :longitude,
-        :city, :state, :country
+        :city, :state, :country, :curriculum
     has_secure_password
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
@@ -52,6 +52,13 @@ class User < ActiveRecord::Base
     has_attached_file   :profile_image
     validates_attachment    :profile_image,
         content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
+
+    has_attached_file   :curriculum
+    validates_attachment    :curriculum,
+        content_type: { :content_type => %w(application/pdf
+          application/msword application/vnd.openxmlformats-officedocument
+            .wordprocessingml.document) }
 
     validates_date  :birthday,
                     on_or_after: lambda { 125.years.ago },

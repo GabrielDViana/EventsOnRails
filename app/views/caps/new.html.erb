@@ -31,6 +31,11 @@
                 <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all.order(:name), :name, :name %>
                 <%= f.label :date, "Data e Horário:", class: 'white-font' %>
                 <%= f.date_field :date, class: 'form-control' %>
+                <span style="display: block;text-align: center;font-size: 18px;">
+                    Apresentação:
+                </span>
+                <%= f.text_area :area, :placeholder => "Máximo 1000 caractéres",
+                  class: 'form-control', rows: 8%>
                 <div id="locationField">
                     <%= f.text_field :address, :onfocus => "geolocate()",
                         :placeholder => "Seu endereço", :id => 'autocomplete',
@@ -48,7 +53,7 @@
                 <span>
                     Escolha uma imagem para o seu cap
                 </span>
-                <%= f.file_field :profile_image, class: 'form-control' %>
+                <%= f.file_field :cap_image, class: 'form-control' %>
                 <%= f.submit "Criar" %>
                 <%= link_to "Voltar ", caps_path,
                 class: 'btn btn-default btn-lg outline

@@ -651,7 +651,7 @@ section {
 ********Twitter CSS*******
 **************************/
 #twitter {
-  background-image: url('assets/twitter-bg.jpg');
+  background-image: url('/assets/contact-bg.jpg');
 }
 
 #twitter > div {
@@ -993,3 +993,24 @@ ul.address {
 }
 
 /*Presets*/
+
+#container-outer {
+  position: relative;
+  overflow: hidden;
+  height: 450px;
+  width: 100%;
+}
+#container-inner {
+  position:relative;
+  top:50%;
+}
+#container-inner img{
+  width:100%;
+  min-height:400px;
+  max-height:600px;
+  min-width: 400px;
+  max-width:100%;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}

@@ -38,7 +38,7 @@
       </table>
     </div>
     <div id="createcap" class="tab-pane fade">
-      <div class="row" style="padding-top: 1em;">
+      <div id="signup" class="row" style="padding-top: 1em;">
 
         <%= form_for(@cap) do |f| %>
         <div class="line">
@@ -49,6 +49,11 @@
                 <%= f.collection_select :tag_list, ActsAsTaggableOn::Tag.all.order(:name),
                   :name, :name, {:prompt => 'Selecione a area'} %>
                 <%= f.date_field :date, class: 'form-control' %>
+                <span style="display: block;text-align: center;font-size: 18px;">
+                    Apresentação:
+                </span>
+                <%= f.text_area :area, :placeholder => "Máximo 1000 caractéres",
+                  class: 'form-control', rows: 8%>
             </div>
           </div>
 
@@ -67,7 +72,7 @@
                   <span>
                       Escolha uma imagem para o seu cap
                   </span>
-                  <%= f.file_field :profile_image, class: 'form-control' %>
+                  <%= f.file_field :cap_image, class: 'form-control' %>
 
                 <!-- <%= f.text_field :country, :placeholder => "País",
                   :id => 'country', class: 'form-control', :disabled => 'true'-%> -->

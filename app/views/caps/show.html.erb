@@ -1,5 +1,14 @@
 <%= render 'layouts/inner_header' %>
+<div class="container">
 <p id="notice"><%= notice %></p>
+<div id="container-outer">
+  <div id="container-inner">
+    <%=  image_tag(
+        @cap.cap_image_file_name.blank? ? "profile/default" :
+        @cap.cap_image.url, alt: @cap.title, class: "cap-img") %>
+  </div>
+</div>
+
 <p>
   <strong>Usuario:</strong>
   <%= @cap.user.complete_name %>
@@ -48,4 +57,5 @@
   <%= @cap.distance_to([current_user.latitude, current_user.longitude]) %>
 </p>
 <%= content_tag(:div, "", id: "google-map", class: "wow fadeIn", "data-latitude"=> @cap.latitude, "data-longitude"=> @cap.longitude, "data-wow-duration"=>"1000ms", "data-wow-delay"=>"400ms") %>
+</div>
 <!-- <div id="google-map" class="wow fadeIn" data-latitude="-15.7942287" data-longitude="-47.8821658" data-wow-duration="1000ms" data-wow-delay="400ms"></div> -->
