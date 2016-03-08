@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304132959) do
+ActiveRecord::Schema.define(version: 20160308175052) do
 
   create_table "caps", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20160304132959) do
     t.string   "cap_image_content_type"
     t.integer  "cap_image_file_size"
     t.datetime "cap_image_updated_at"
+    t.date     "start_at"
+    t.date     "end_at"
+    t.time     "time_start"
+    t.time     "time_end"
+    t.integer  "meetings"
+    t.string   "observations"
   end
 
   create_table "participations", force: :cascade do |t|

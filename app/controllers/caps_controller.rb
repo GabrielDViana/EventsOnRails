@@ -8,7 +8,7 @@ class CapsController < ApplicationController
         else
             @caps = Cap.all
         end
-        @caps_by_date = @caps.group_by(&:date)
+        @caps_by_date = @caps.group_by(&:start_at)
         @date = params[:date] ? Date.parse(params[:date]) : Date.today
     end
 
@@ -48,7 +48,8 @@ class CapsController < ApplicationController
         def cap_params
             params.require(:cap).permit(:title, :area, :date, :time, :address,
                 :latitude, :longitude, :tag_list, :city, :state, :country,
-                :cap_image)
+                :cap_image, :start_at, :end_at, :time_start, :time_end,
+                :meetings, :observations)
         end
 
         def authorize

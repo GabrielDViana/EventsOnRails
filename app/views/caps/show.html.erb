@@ -10,8 +10,8 @@
 </div>
 
 <p>
-  <strong>Usuario:</strong>
-  <%= @cap.user.complete_name %>
+  <strong>Dono:</strong>
+  <%= link_to @cap.user.nickname, @cap.user %>
 </p>
 
 <p>
@@ -20,13 +20,43 @@
 </p>
 
 <p>
-  <strong>Categorias:</strong>
+  <strong>Apresentação:</strong>
+  <%= @cap.area %>
+</p>
+
+<p>
+  <strong>Observações:</strong>
+  <%= @cap.observations %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
   <%= raw @cap.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %>
 </p>
 
 <p>
-  <strong>Data e Horário:</strong>
-  <%= @cap.date.strftime(" %d/%m/%Y %H:%M") %>
+  <strong>Inicio:</strong>
+  <%= @cap.start_at.strftime(" %d/%m/%Y") %>
+</p>
+
+<p>
+  <strong>Fim:</strong>
+  <%= @cap.end_at.strftime(" %d/%m/%Y") %>
+</p>
+
+<p>
+  <strong>Horario de inicio:</strong>
+  <%= @cap.time_start.strftime(" %M:%S") %>
+</p>
+
+<p>
+  <strong>Horario de fim:</strong>
+  <%= @cap.time_end.strftime(" %M:%S") %>
+</p>
+
+<p>
+  <strong>Encontros:</strong>
+  <%= @cap.meetings %>
 </p>
 
 <p>

@@ -72,6 +72,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    combined_time_select (1.0.1)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
     erubis (2.7.0)
@@ -188,6 +189,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
+  combined_time_select (~> 1.0.1)
   devise!
   geocoder
   jquery-rails

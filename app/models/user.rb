@@ -1,4 +1,3 @@
-# Model do usuario, chama as validações
 class User < ActiveRecord::Base
     attr_accessible :nickname, :complete_name, :email, :password, :terms,
         :profile_image, :birthday, :experience, :address, :latitude, :longitude,
