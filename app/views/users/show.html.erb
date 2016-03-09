@@ -5,9 +5,11 @@
   <div class="col-sm-10 content main-content">
     <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#perfil">Perfil</a></li>
+    <% if logged_in? && current_user = @user %>
     <li><a data-toggle="tab" href="#joined">Caps inscritos</a></li>
     <li><a data-toggle="tab" href="#caps">Meus Caps</a></li>
     <li><a data-toggle="tab" href="#createcap">Criar Caps</a></li>
+    <% end %>
   </ul>
 
   <div class="tab-content">
@@ -37,9 +39,9 @@
         <% end %>
       </table>
     </div>
+    <% if logged_in? && current_user = @user %>
     <div id="createcap" class="tab-pane fade">
       <div id="signup" class="row" style="padding-top: 1em;">
-
         <%= form_for(@cap) do |f| %>
         <div class="line">
           <div class="col-md-6 quad">
@@ -62,7 +64,7 @@
                 <span style="display: block;text-align: center;font-size: 18px;">
                     Horário do inicio:
                 </span>
-                <%= f.time_select :start_at,
+                <%= f.time_select :time_start,
                   :combined => true,
                   :default => Time.now.change(:hour => 12, :min => 00),
                   :minute_interval => 15,
@@ -75,7 +77,7 @@
                 <span style="display: block;text-align: center;font-size: 18px;">
                     Horário do fim:
                 </span>
-                <%= f.time_select :end_at,
+                <%= f.time_select :time_end,
                   :combined => true,
                   :default => Time.now.change(:hour => 14, :min => 00),
                   :minute_interval => 15,
@@ -85,6 +87,7 @@
                   :end_hour => 23,
                   :end_minute => 45
                 %>
+
                 <span style="display: block;text-align: center;font-size: 18px;">
                     Quantidade de encontros:
                 </span>
@@ -155,7 +158,7 @@
             <tr>
               <td><%= cap.title %></td>
               <td><%= raw cap.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %></td>
-              <td><%= cap.date.strftime(" %d/%m/%Y %H:%M") %></td>
+              <td><%= cap.start_at.strftime(" %d/%m/%Y") %></td>
               <td><%= link_to 'Mostrar', cap %></td>
             </tr>
           <% end %>
@@ -177,14 +180,14 @@
             <tr>
               <td><%= cap.title %></td>
               <td><%= raw cap.tag_list.map {|tag| link_to tag, tag_path(tag)}.join(', ') %></td>
-              <td><%= cap.date.strftime(" %d/%m/%Y %H:%M") %></td>
+              <td><%= cap.start_at.strftime(" %d/%m/%Y") %></td>
               <td><%= link_to 'Mostrar', cap %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
-
+    <% end %>
   </div>
   </div>
 </div>

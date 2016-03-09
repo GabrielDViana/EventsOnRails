@@ -42,7 +42,7 @@ class CapsController < ApplicationController
 
     private
         def set_cap
-            @cap = Cap.find(params[:id])
+            @cap = Cap.find_by_token(params[:token])
         end
 
         def cap_params

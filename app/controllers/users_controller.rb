@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    skip_before_action :authorize, only: [:new, :create, :index]
+    skip_before_action :authorize, only: [:new, :create, :update, :index]
+    before_action :authorize, except: [:show, :index]
 
     def index
         @users = User.all
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
     end
 # Metodo update permitira que o usuário faça a edição dos dados que achar necessario
     def update
-        @user = User.find(params[:id])
+        @user = User.find_by_token(params[:token])
         if @user.update(user_params)
             redirect_to @user
             flash[:success] = 'Perfil atualizado'
@@ -60,7 +61,7 @@ class UsersController < ApplicationController
 
     private
         def set_user
-            @user = User.find(params[:id])
+            @user = User.find_by_token(params[:token])
         end
 
         def user_params
@@ -68,5 +69,17 @@ class UsersController < ApplicationController
                 :password, :password_confirmation, :terms, :profile_image,
                 :birthday, :experience, :address, :latitude, :longitude,
                 :city, :state, :country, :curriculum)
+        end
+
+        def authorize
+            if current_user.nil?
+                redirect_to login_url
+                flash[:error] = "Não autorizado, por favor faça login"
+            else
+                if @user != current_user
+                    redirect_to root_path,
+                    flash[:error] = "Usuário não autorizado!"
+                end
+            end
         end
 end

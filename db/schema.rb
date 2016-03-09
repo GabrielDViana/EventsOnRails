@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308175052) do
+ActiveRecord::Schema.define(version: 20160309175657) do
 
   create_table "caps", force: :cascade do |t|
     t.string   "title"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160308175052) do
     t.time     "time_end"
     t.integer  "meetings"
     t.string   "observations"
+    t.string   "token"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -94,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160308175052) do
     t.string   "curriculum_content_type"
     t.integer  "curriculum_file_size"
     t.datetime "curriculum_updated_at"
+    t.string   "token"
   end
 
 end

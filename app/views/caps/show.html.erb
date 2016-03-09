@@ -4,7 +4,7 @@
 <div id="container-outer">
   <div id="container-inner">
     <%=  image_tag(
-        @cap.cap_image_file_name.blank? ? "profile/default" :
+        @cap.cap_image_file_name.blank? ? "capdefault" :
         @cap.cap_image.url, alt: @cap.title, class: "cap-img") %>
   </div>
 </div>

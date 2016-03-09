@@ -6,6 +6,7 @@ class Cap < ActiveRecord::Base
     belongs_to :user
     geocoded_by :address
     acts_as_taggable
+    has_secure_token
     has_many :participations
     has_many :users, through: :participations
 
@@ -41,6 +42,10 @@ class Cap < ActiveRecord::Base
                 presence: true,
                 :on => :create,
                 length:{ maximum: 1000 }
+
+  def to_param
+    token
+  end
 
   private
     def end_after_start

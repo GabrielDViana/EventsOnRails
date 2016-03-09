@@ -9,11 +9,11 @@ Rails.application.routes.draw do
     get 'caps/edit'
     get 'caps/destroy'
 
-    resources :caps do
+    resources :caps, param: :token do
       resources :participations
     end
     resources :password_resets
-    resources :users
+    resources :users, param: :token
 
 # Essas são as rotas das URLs
     resources :sessions, only: [:new, :create, :destroy]

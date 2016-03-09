@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
         :profile_image, :birthday, :experience, :address, :latitude, :longitude,
         :city, :state, :country, :curriculum
     has_secure_password
+    has_secure_token
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
     has_many :participations
@@ -84,6 +85,10 @@ class User < ActiveRecord::Base
         self.password_reset_sent_at = Time.zone.now
         save!(:validate => false)
         UserMailer.password_reset(self).deliver_now
+    end
+
+    def to_param
+      token
     end
 # Chave que será mandada pelo email
     private

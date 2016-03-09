@@ -1,11 +1,11 @@
 <div class="col-sm-2">
     <div class="profile-bar">
         <div class="profile-image">
-            <%= link_to image_tag(
-                current_user.profile_image_file_name.blank? ? "profile/default" : current_user.profile_image.url, alt: "Profile image"), "/users/#{current_user.id}" %>
+            <%= image_tag(
+                @user.profile_image_file_name.blank? ? "profile" : @user.profile_image.url, alt: "Profile image") %>
         </div>
         <div>
-          <p id="user-name"><%= current_user.complete_name %></p>
+          <p id="user-name"><%= @user.complete_name %></p>
           <% if logged_in? && current_user = @user %>
           <div>
             <%= link_to "Editar Perfil", edit_user_path, class: "white-font" %>

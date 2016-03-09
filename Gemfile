@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use has_secure_token to add security to model
+gem 'has_secure_token'
 # Use combined_time_select to easily select time
 gem "combined_time_select", "~> 1.0.1"
 # Use rails-i18n to internationalize the application
