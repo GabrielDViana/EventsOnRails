@@ -4,24 +4,42 @@
 <div id="container-outer">
   <div id="container-inner">
     <%=  image_tag(
-        @cap.cap_image_file_name.blank? ? "capdefault" :
+        @cap.cap_image_file_name.blank? ? "camera-outline" :
         @cap.cap_image.url, alt: @cap.title, class: "cap-img") %>
   </div>
 </div>
 
+<% if logged_in? && current_user = @cap.user %>
+  <div id="signup">
+    <%= form_for(@cap) do |f| %>
+      <% if   @cap.cap_image_file_name.blank?%>
+        <span>
+            Escolha uma imagem para o seu Cap
+        </span>
+      <% else %>
+        <span>
+            Altere uma imagem para o seu Cap
+        </span>
+      <% end %>
+        <%= f.file_field :cap_image, class: 'form-control' %>
+        <%= f.submit "Salvar" %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+    <h2><%= @cap.title %></h2>
+    <h3>Apresentação</h3>
+    <p><%= @cap.area %></p>
+    <p>Para ser um Expositor com a newcap você não precisa ser ligado a nenhuma instituição de ensino, possuir certificações e muito menos de uma sala de aula convencional. </p>
+  </div>
+</div>
+
+
 <p>
-  <strong>Dono:</strong>
+  <strong>Expositor:</strong>
   <%= link_to @cap.user.nickname, @cap.user %>
-</p>
-
-<p>
-  <strong>Titulo:</strong>
-  <%= @cap.title %>
-</p>
-
-<p>
-  <strong>Apresentação:</strong>
-  <%= @cap.area %>
 </p>
 
 <p>
@@ -68,7 +86,7 @@
 <table class="table">
   <h1>Participantes</h1>
   <thead>
-      <th>Participante (Username)</th>
+      <th>Participante</th>
       <th>Nome</th>
     </tr>
   </thead>

@@ -47,6 +47,14 @@ class Cap < ActiveRecord::Base
     token
   end
 
+  def self.search(search)
+    if search
+      where(["title LIKE ?","%#{search}%"])
+    else
+      none
+    end
+  end
+
   private
     def end_after_start
       return if end_at.blank? || start_at.blank?

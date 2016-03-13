@@ -1,0 +1,17 @@
+<%= render 'layouts/inner_header' %>
+
+<h1>Resultado da busca</h1>
+
+
+    <% @search.search_caps.each do |cap| %>
+    <!-- <div class="member-image">
+      <%=  image_tag(
+          cap.cap_image_file_name.blank? ? "capdefault" :
+          cap.cap_image.url, alt: cap.title, class: "img-responsive") %>
+    </div> -->
+    <div class="member-info">
+      <h3><%= link_to cap.title, cap %></h3>
+      <h4><%= cap.tag_list %></h4>
+      <p>Início: <%= cap.start_at.strftime(" %d/%m/%Y") %> <%= cap.time_start.strftime(" %M:%S") %></p>
+    </div>
+    <% end %>

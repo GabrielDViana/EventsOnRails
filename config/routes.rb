@@ -5,17 +5,15 @@ Rails.application.routes.draw do
     get 'caps/index'
     get 'caps/show'
     get 'caps/new'
-    get 'caps/create'
     get 'caps/edit'
-    get 'caps/destroy'
 
     resources :caps, param: :token do
       resources :participations
     end
     resources :password_resets
     resources :users, param: :token
+    resources :searches
 
-# Essas são as rotas das URLs
     resources :sessions, only: [:new, :create, :destroy]
 
     get 'signup', to: 'users#new', as: 'signup'

@@ -1,0 +1,27 @@
+<%= render 'layouts/inner_header' %>
+
+<h1>Busca Avançada</h1>
+
+<%= form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :keywords %><br />
+    <%= f.text_field :keywords%>
+  </div>
+
+  <div class="field">
+    <%= f.collection_select :category, ActsAsTaggableOn::Tag.all.order(:name),
+      :name, :name, {:prompt => 'Selecione a area'} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city%>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state%>
+  </div>
+
+  <%= f.submit "Buscar"%>
+<% end %>

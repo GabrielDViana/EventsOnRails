@@ -1,28 +1,45 @@
 <!-- <p id="notice"><%= notice %></p> -->
 <%= render 'layouts/inner_header' %>
-<h1>Caps</h1>
+<div class="container">
+  <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+    <h2>Caps</h2>
+    <h3>Encontre o Cap que deseja</h3>
+    <h3>Procure por categorias</h3>
+  </div>
+</div>
 
-<% tag_cloud ActsAsTaggableOn::Tag.all.order(:name), %w[btn] do |tag, css_class| %>
+<div class="container">
+  <% tag_cloud ActsAsTaggableOn::Tag.all.order(:name), %w[btn] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-<% end %>
-<div id="calendar">
-  <h2 id="month">
-    <%= link_to "<", date: @date.prev_month %>
-    <%= @date.strftime("%B %Y") %>
-    <%= link_to ">", date: @date.next_month %>
-  </h2>
-  <%= calendar @date do |date| %>
-
-    <%= date.day %>
-    <% if @caps_by_date[date] %>
-      <ul>
-        <% @caps_by_date[date].each do |cap| %>
-        <%= link_to cap.title, cap %>
-        <% end %>
-      </ul>
-    <% end %>
   <% end %>
 </div>
+
+<div class="container">
+  <div id="calendar">
+    <h2 id="month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime("%B %Y") %>
+      <%= link_to ">", date: @date.next_month %>
+    </h2>
+    <%= calendar @date do |date| %>
+
+      <%= date.day %>
+      <% if @caps_by_date[date] %>
+        <ul>
+          <% @caps_by_date[date].each do |cap| %>
+          <%= link_to cap.title, cap %>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= form_tag caps_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search]%>
+  <%= submit_tag "Procurar"%>
+<% end %>
+<%= link_to "Busca avançada", new_search_path %>
 
 <table class="table">
   <thead>
@@ -32,6 +49,7 @@
       <th>Area</th>
       <th>Data e Horario</th>
       <th colspan="2"></th>
+
     </tr>
   </thead>
 
@@ -41,7 +59,7 @@
         <td><%= cap.user.nickname %></td>
         <td><%= cap.title %></td>
         <td><%= cap.area %></td>
-        <td><%= cap.date.strftime(" %d/%m/%Y %H:%M") %></td>
+        <td><%= cap.start_at.strftime(" %d/%m/%Y") %></td>
         <td><%= link_to 'Show', cap %></td>
         <% if logged_in? && current_user = cap.user%>
             <td><%= link_to 'Remove', cap_path(cap), method: :delete,
