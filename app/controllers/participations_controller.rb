@@ -10,7 +10,8 @@ class ParticipationsController < ApplicationController
     @participation = Participation.new(participation_params)
     @participation.user = current_user
     current_user.update_attributes(participation_params[:user_attributes])
-    @participation.cap = Cap.find_by_token(params[:token])
+    @cap = Cap.find_by_token(params[:token])
+    @participation.cap = @cap
     if @participation.save
       redirect_to caps_path
       flash[:success] = "Voce foi registrado no Cap!"
@@ -22,6 +23,6 @@ class ParticipationsController < ApplicationController
 private
 
   def participation_params
-    params.require(:participation).permit(:id, user_attributes: [:token, :complete_name])
+    params.require(:participation).permit(:id, user_attributes: [:id, :complete_name])
   end
 end

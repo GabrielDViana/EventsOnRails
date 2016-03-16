@@ -51,7 +51,7 @@ class Cap < ActiveRecord::Base
     if search
       where(["title LIKE ?","%#{search}%"])
     else
-      none
+      all
     end
   end
 

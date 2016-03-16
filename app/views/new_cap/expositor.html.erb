@@ -53,25 +53,27 @@
           <p>Confira os próximos Caps e participe!</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
-            <% @news.each do |cap| %>
-            <div class="member-image">
-              <%=  image_tag(
-                  cap.cap_image_file_name.blank? ? "capdefault" :
-                  cap.cap_image.url, alt: cap.title, class: "img-responsive") %>
+      <div class="team-members">
+        <div class="row">
+          <% @news.each do |cap| %>
+            <div class="col-sm-3">
+              <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
+                <div class="member-image">
+                  <%=  image_tag(
+                      cap.cap_image_file_name.blank? ? "capdefault" :
+                      cap.cap_image.url, alt: cap.title, class: "img-responsive") %>
+                </div>
+                <div class="member-info">
+                  <h3><%= link_to cap.title, cap %></h3>
+                  <h4><%= cap.tag_list %></h4>
+                  <p>Início: <%= cap.start_at.strftime(" %d/%m/%Y") %> <%= cap.time_start.strftime(" %M:%S") %></p>
+                </div>
+                <div class="social-icons">
+                  <%= link_to 'Participar', new_cap_participation_path(cap) %>
+                </div>
+              </div>
             </div>
-            <div class="member-info">
-              <h3><%= link_to cap.title, cap %></h3>
-              <h4><%= cap.tag_list %></h4>
-              <p>Início: <%= cap.start_at.strftime(" %d/%m/%Y") %> <%= cap.time_start.strftime(" %M:%S") %></p>
-            </div>
-            <div class="social-icons">
-              <%= link_to 'Participar', new_cap_participation_path(cap) %>
-            </div>
-            <% end %>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

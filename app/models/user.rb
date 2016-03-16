@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
     before_create :confirmation_token
     before_create { generate_token(:auth_token) }
     has_many :participations
-    has_many :caps, dependent: :destroy, through: :participations
+    has_many :caps, dependent: :destroy
+    has_many :caps, through: :participations
     geocoded_by :address
 
     after_validation    :geocode,

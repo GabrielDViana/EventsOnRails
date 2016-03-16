@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     def show
       @cap = Cap.new
       @joined = @user.caps
-      @caps = Cap.where(:user_id => params[:id])
+      @caps = Cap.where(:caps => { :user_id => @user.id })
     end
 
     def new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         if @user.save
             UserMailer.registration_confirmation(@user).deliver_now
             flash[:error] = "Por favor confirme seu cadastro no email que enviamos"
-            redirect_to root_url
+            redirect_to login_url
         else
             flash[:error] = "Tente novamente! Ocorreu alguma falha no cadastro."
             render 'new'
